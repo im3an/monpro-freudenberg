@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datenschutz — Monpro Freudenberg</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'mp-deep':   '#1F1D1A',
+            'mp-mid':    '#2C2926',
+            'mp-light':  '#F3F0EB',
+            'mp-accent': '#C8903A',
+            'mp-acc-h':  '#B07528',
+            'mp-text':   '#F3F0EB',
+            'mp-muted':  '#9A9690',
+            'mp-dim':    '#6B6660',
+            'mp-border': '#363330',
+          },
+          fontFamily: {
+            display: ['Bebas Neue', 'sans-serif'],
+            body:    ['Inter', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #1F1D1A;
+      color: #F3F0EB;
+      -webkit-font-smoothing: antialiased;
+    }
+    .eyebrow {
+      display: block;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #C8903A;
+    }
+    .nav-link {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: #9A9690;
+      transition: color 140ms ease;
+    }
+    .nav-link:hover { color: #F3F0EB; }
+    .btn-primary {
+      display: inline-block;
+      background: #C8903A;
+      color: #1F1D1A;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.875rem 2rem;
+      border-radius: 2px;
+      transition: background 140ms ease, transform 140ms ease;
+      text-decoration: none;
+    }
+    .btn-primary:hover { background: #B07528; transform: translateY(-1px); }
+
+    .legal h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.04em;
+      color: #F3F0EB;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+      padding-top: 2rem;
+      border-top: 1px solid #363330;
+    }
+    .legal h2:first-child { margin-top: 0; border-top: none; padding-top: 0; }
+    .legal h3 {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #F3F0EB;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .legal p {
+      font-size: 0.875rem;
+      color: #9A9690;
+      line-height: 1.8;
+      margin-bottom: 0.75rem;
+    }
+    .legal ul {
+      padding-left: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+    .legal ul li {
+      font-size: 0.875rem;
+      color: #9A9690;
+      line-height: 1.8;
+      list-style: none;
+      padding-left: 0.5rem;
+    }
+    .legal ul li::before { content: '— '; color: #C8903A; }
+    .legal a { color: #C8903A; text-decoration: none; }
+    .legal a:hover { text-decoration: underline; }
+    .placeholder {
+      background: rgba(200,144,58,0.12);
+      border: 1px dashed rgba(200,144,58,0.4);
+      border-radius: 2px;
+      padding: 0 0.25rem;
+      color: #C8903A;
+      font-style: italic;
+    }
+
+    /* TOC sidebar */
+    .toc a {
+      display: block;
+      font-size: 0.75rem;
+      color: #9A9690;
+      text-decoration: none;
+      padding: 0.375rem 0 0.375rem 0.875rem;
+      border-left: 2px solid transparent;
+      letter-spacing: 0.03em;
+      transition: color 140ms, border-color 140ms;
+      line-height: 1.4;
+    }
+    .toc a:hover { color: #F3F0EB; border-color: #C8903A; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-mp-deep border-b border-mp-border">
+    <div class="max-w-[1200px] mx-auto px-6 flex items-center justify-between h-[60px]">
+      <a href="index.html" class="font-display text-[1.4rem] tracking-[0.12em] text-mp-text">MONPRO</a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="produkte.html" class="nav-link">Produkte</a>
+        <a href="service.html"  class="nav-link">Service</a>
+        <a href="index.html#referenzen" class="nav-link">Referenzen</a>
+        <a href="kontakt.html"  class="nav-link">Kontakt</a>
+      </div>
+      <a href="kontakt.html" class="hidden md:block btn-primary" style="padding:0.625rem 1.5rem; font-size:0.75rem;">Angebot anfragen</a>
+      <button id="nav-toggle" class="md:hidden flex flex-col gap-[5px] p-2" aria-label="Menü">
+        <span class="w-5 h-[1.5px] bg-mp-text block"></span>
+        <span class="w-5 h-[1.5px] bg-mp-text block"></span>
+        <span class="w-3 h-[1.5px] bg-mp-accent block"></span>
+      </button>
+    </div>
+    <div id="nav-menu" class="hidden md:hidden bg-mp-mid border-t border-mp-border px-6 py-6 flex flex-col gap-5">
+      <a href="produkte.html" class="nav-link text-mp-text">Produkte</a>
+      <a href="service.html"  class="nav-link text-mp-text">Service</a>
+      <a href="index.html#referenzen" class="nav-link text-mp-text">Referenzen</a>
+      <a href="kontakt.html"  class="nav-link text-mp-text">Kontakt</a>
+      <a href="kontakt.html" class="btn-primary mt-2 text-center">Angebot anfragen</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="pt-[60px] bg-mp-deep border-b border-mp-border">
+    <div class="max-w-[1200px] mx-auto px-6 py-16 md:py-20">
+      <span class="eyebrow mb-5">Rechtliches</span>
+      <h1 class="font-display text-mp-text" style="font-size: clamp(3rem, 7vw, 5.5rem); line-height: 1; letter-spacing: -0.01em;">
+        DATENSCHUTZ
+      </h1>
+      <p class="text-mp-muted text-sm mt-4">Stand: <span class="placeholder">[Monat Jahr]</span></p>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <main class="py-16 md:py-20">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+
+        <!-- TOC sidebar -->
+        <aside class="lg:col-span-3">
+          <div style="border: 1px solid #363330; border-radius: 2px; padding: 1.25rem; position: sticky; top: 80px;">
+            <span class="eyebrow mb-4">Inhalt</span>
+            <nav class="toc flex flex-col">
+              <a href="#verantwortlicher">Verantwortlicher</a>
+              <a href="#erhebung">Datenerhebung</a>
+              <a href="#hosting">Hosting</a>
+              <a href="#kontaktformular">Kontaktformular</a>
+              <a href="#cookies">Cookies</a>
+              <a href="#rechte">Ihre Rechte</a>
+              <a href="#aenderungen">Änderungen</a>
+            </nav>
+            <div style="margin-top:1.25rem; padding-top:1.25rem; border-top:1px solid #363330;">
+              <p style="font-size:0.75rem; color:#9A9690; line-height:1.6;">
+                Diese Erklärung gilt ausschließlich für diese Website. Bitte durch einen Datenschutzbeauftragten oder Anwalt prüfen lassen.
+              </p>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Legal text -->
+        <div class="lg:col-span-9 legal">
+
+          <h2 id="verantwortlicher">1. Verantwortlicher</h2>
+          <p>
+            Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) und anderer nationaler Datenschutzgesetze sowie sonstiger datenschutzrechtlicher Bestimmungen ist:
+          </p>
+          <p>
+            <span class="placeholder">[Vollständiger Firmenname]</span><br>
+            <span class="placeholder">[Straße und Hausnummer]</span><br>
+            <span class="placeholder">[PLZ] Freudenberg</span><br>
+            Telefon: <span class="placeholder">[Telefonnummer]</span><br>
+            E-Mail: <span class="placeholder">[E-Mail-Adresse]</span>
+          </p>
+
+          <h2 id="erhebung">2. Datenerhebung auf dieser Website</h2>
+
+          <h3>Wer ist verantwortlich für die Datenerhebung?</h3>
+          <p>
+            Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.
+          </p>
+
+          <h3>Wie erfassen wir Ihre Daten?</h3>
+          <p>
+            Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z. B. um Daten handeln, die Sie in ein Kontaktformular eingeben.
+          </p>
+          <p>
+            Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z. B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs). Die Erfassung dieser Daten erfolgt automatisch, sobald Sie diese Website betreten.
+          </p>
+
+          <h3>Wofür nutzen wir Ihre Daten?</h3>
+          <p>
+            Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden. Formulardaten werden ausschließlich zur Bearbeitung Ihrer Anfrage genutzt.
+          </p>
+
+          <h3>Welche Rechte haben Sie bezüglich Ihrer Daten?</h3>
+          <p>
+            Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen. Wenn Sie eine Einwilligung zur Datenverarbeitung erteilt haben, können Sie diese Einwilligung jederzeit für die Zukunft widerrufen. Außerdem haben Sie das Recht, unter bestimmten Umständen die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.
+          </p>
+
+          <h2 id="hosting">3. Hosting</h2>
+          <p>
+            Diese Website wird bei <strong style="color:#F3F0EB;">IONOS SE</strong> gehostet. Anbieter ist die IONOS SE, Elgendorfer Str. 57, 56410 Montabaur. Wenn Sie unsere Website besuchen, erfasst IONOS verschiedene Logfiles inklusive Ihrer IP-Adressen.
+          </p>
+          <p>
+            Details entnehmen Sie der Datenschutzerklärung von IONOS: <a href="https://www.ionos.de/terms-gtc/datenschutzerklaerung/" target="_blank" rel="noopener">ionos.de/terms-gtc/datenschutzerklaerung</a>
+          </p>
+          <p>
+            Der Einsatz von IONOS erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Wir haben ein berechtigtes Interesse an einer möglichst zuverlässigen Darstellung unserer Website. Sofern eine entsprechende Einwilligung abgefragt wurde, erfolgt die Verarbeitung ausschließlich auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO.
+          </p>
+
+          <h2 id="kontaktformular">4. Kontaktformular und E-Mail-Kontakt</h2>
+          <p>
+            Wenn Sie uns per Kontaktformular oder E-Mail Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.
+          </p>
+          <p>
+            Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen erforderlich ist. In allen übrigen Fällen beruht die Verarbeitung auf unserem berechtigten Interesse an der effektiven Bearbeitung der an uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO) oder auf Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO).
+          </p>
+          <p>
+            Die von Ihnen im Kontaktformular eingegebenen Daten verbleiben bei uns, bis Sie uns zur Löschung auffordern, Ihre Einwilligung zur Speicherung widerrufen oder der Zweck für die Datenspeicherung entfällt (z. B. nach abgeschlossener Bearbeitung Ihrer Anfrage). Zwingende gesetzliche Bestimmungen — insbesondere Aufbewahrungsfristen — bleiben unberührt.
+          </p>
+
+          <h3>Welche Daten werden im Formular erhoben?</h3>
+          <ul>
+            <li>Name (Pflichtfeld)</li>
+            <li>E-Mail-Adresse (Pflichtfeld)</li>
+            <li>Telefonnummer (freiwillig)</li>
+            <li>Freitext / Nachricht (freiwillig)</li>
+          </ul>
+
+          <h2 id="cookies">5. Cookies</h2>
+          <p>
+            Diese Website verwendet keine Tracking-Cookies und keine Analyse-Dienste (z. B. Google Analytics). Es werden ausschließlich technisch notwendige Session-Cookies eingesetzt, die für den Betrieb der Website erforderlich sind und nach dem Schließen des Browsers automatisch gelöscht werden.
+          </p>
+          <p>
+            <em style="color:#6B6660; font-size:0.8rem;">Hinweis: Wenn zu einem späteren Zeitpunkt externe Dienste wie Google Maps, Google Analytics oder ähnliches eingebunden werden, muss dieser Abschnitt entsprechend ergänzt und ein Cookie-Consent-Banner implementiert werden.</em>
+          </p>
+
+          <h2 id="rechte">6. Ihre Rechte als betroffene Person</h2>
+
+          <h3>Auskunftsrecht (Art. 15 DSGVO)</h3>
+          <p>Sie haben das Recht, Auskunft über die zu Ihrer Person gespeicherten Daten zu erhalten.</p>
+
+          <h3>Recht auf Berichtigung (Art. 16 DSGVO)</h3>
+          <p>Sie haben das Recht, unrichtige oder unvollständige Daten berichtigen zu lassen.</p>
+
+          <h3>Recht auf Löschung (Art. 17 DSGVO)</h3>
+          <p>Sie haben das Recht, die Löschung Ihrer personenbezogenen Daten zu verlangen, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
+
+          <h3>Recht auf Einschränkung (Art. 18 DSGVO)</h3>
+          <p>Sie haben das Recht, die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.</p>
+
+          <h3>Recht auf Datenübertragbarkeit (Art. 20 DSGVO)</h3>
+          <p>Sie haben das Recht, Ihre Daten in einem strukturierten, gängigen und maschinenlesbaren Format zu erhalten.</p>
+
+          <h3>Widerspruchsrecht (Art. 21 DSGVO)</h3>
+          <p>Sie haben das Recht, der Verarbeitung Ihrer personenbezogenen Daten zu widersprechen.</p>
+
+          <h3>Beschwerderecht bei der Aufsichtsbehörde</h3>
+          <p>
+            Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die Verarbeitung Ihrer personenbezogenen Daten durch uns zu beschweren. Zuständig für NRW ist:
+          </p>
+          <p>
+            Landesbeauftragte für Datenschutz und Informationsfreiheit NRW<br>
+            Postfach 20 04 44, 40102 Düsseldorf<br>
+            <a href="https://www.ldi.nrw.de" target="_blank" rel="noopener">www.ldi.nrw.de</a>
+          </p>
+
+          <h2 id="aenderungen">7. Aktualität und Änderung dieser Datenschutzerklärung</h2>
+          <p>
+            Diese Datenschutzerklärung ist aktuell gültig und hat den Stand <span class="placeholder">[Monat Jahr]</span>. Durch die Weiterentwicklung unserer Website oder aufgrund geänderter gesetzlicher bzw. behördlicher Vorgaben kann es notwendig werden, diese Datenschutzerklärung zu ändern. Die jeweils aktuelle Datenschutzerklärung kann jederzeit auf dieser Seite abgerufen werden.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-mp-border bg-mp-deep py-7">
+    <div class="max-w-[1200px] mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-5">
+      <a href="index.html" class="font-display text-[1.3rem] tracking-[0.12em] text-mp-text">MONPRO</a>
+      <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+        <a href="produkte.html"    class="nav-link text-mp-muted text-[0.7rem]">Produkte</a>
+        <a href="service.html"     class="nav-link text-mp-muted text-[0.7rem]">Service</a>
+        <a href="kontakt.html"     class="nav-link text-mp-muted text-[0.7rem]">Kontakt</a>
+        <a href="impressum.html"   class="nav-link text-mp-muted text-[0.7rem]">Impressum</a>
+        <a href="datenschutz.html" class="nav-link text-mp-muted text-[0.7rem]">Datenschutz</a>
+      </nav>
+      <div class="flex flex-col items-center md:items-end gap-2">
+        <div class="flex items-center gap-4">
+          <a href="#" aria-label="Instagram" class="text-mp-muted hover:text-mp-accent transition-colors duration-150">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook" class="text-mp-muted hover:text-mp-accent transition-colors duration-150">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube" class="text-mp-muted hover:text-mp-accent transition-colors duration-150">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.96 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58a2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>
+          </a>
+        </div>
+        <p class="text-mp-muted text-[0.7rem]">© 2025 Monpro Freudenberg</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('nav-toggle').addEventListener('click', function () {
+      document.getElementById('nav-menu').classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>

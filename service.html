@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service — Monpro Freudenberg</title>
+  <meta name="description" content="Beratung, Planung, Montage und Wartung von Terrassenüberdachungen aus Aluminium — Monpro Freudenberg.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'mp-deep':   '#1F1D1A',
+            'mp-mid':    '#2C2926',
+            'mp-light':  '#F3F0EB',
+            'mp-white':  '#F8F5F0',
+            'mp-accent': '#C8903A',
+            'mp-acc-h':  '#B07528',
+            'mp-text':   '#F3F0EB',
+            'mp-muted':  '#9A9690',
+            'mp-dim':    '#6B6660',
+            'mp-border': '#363330',
+            'mp-brd-l':  '#DAD6CF',
+          },
+          fontFamily: {
+            display: ['Bebas Neue', 'sans-serif'],
+            body:    ['Inter', 'sans-serif'],
+          },
+          letterSpacing: {
+            wide:  '0.08em',
+            wider: '0.15em',
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #1F1D1A;
+      color: #F3F0EB;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .photo {
+      background: linear-gradient(160deg, #2C2926 0%, #1A1815 60%, #242120 100%);
+      position: relative;
+    }
+    .photo::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        -55deg,
+        transparent,
+        transparent 12px,
+        rgba(200,144,58,0.03) 12px,
+        rgba(200,144,58,0.03) 13px
+      );
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #C8903A;
+    }
+
+    .nav-link {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: #9A9690;
+      transition: color 140ms ease;
+    }
+    .nav-link:hover { color: #F3F0EB; }
+
+    .btn-primary {
+      display: inline-block;
+      background: #C8903A;
+      color: #1F1D1A;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.875rem 2rem;
+      border-radius: 2px;
+      transition: background 140ms ease, transform 140ms ease;
+      text-decoration: none;
+    }
+    .btn-primary:hover { background: #B07528; transform: translateY(-1px); }
+
+    .field { display: flex; flex-direction: column; gap: 0.375rem; }
+    .field label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #9A9690;
+    }
+    .field input, .field textarea {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9375rem;
+      background: #F8F5F0;
+      border: 1px solid #DAD6CF;
+      border-radius: 2px;
+      padding: 0.75rem 1rem;
+      color: #1F1D1A;
+      outline: none;
+      transition: border-color 140ms ease;
+      resize: none;
+    }
+    .field input:focus, .field textarea:focus { border-color: #C8903A; }
+    .field input::placeholder, .field textarea::placeholder { color: #B0ABA4; }
+
+    /* Process steps */
+    .process-step {
+      display: grid;
+      grid-template-columns: 5rem 1fr;
+      gap: 2rem;
+      padding: 3rem 0;
+      border-top: 1px solid #363330;
+      align-items: start;
+    }
+    .process-step:last-child { border-bottom: 1px solid #363330; }
+
+    .process-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.5rem;
+      color: #C8903A;
+      line-height: 1;
+    }
+
+    /* FAQ accordion */
+    .faq-item { border-top: 1px solid #363330; }
+    .faq-item:last-child { border-bottom: 1px solid #363330; }
+    .faq-trigger {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 0;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: #F3F0EB;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      text-align: left;
+      gap: 1rem;
+    }
+    .faq-trigger:hover { color: #C8903A; }
+    .faq-icon {
+      flex-shrink: 0;
+      width: 1.25rem;
+      height: 1.25rem;
+      color: #C8903A;
+      transition: transform 220ms cubic-bezier(0.16,1,0.3,1);
+    }
+    .faq-body {
+      display: none;
+      padding-bottom: 1.5rem;
+      font-size: 0.875rem;
+      color: #9A9690;
+      line-height: 1.75;
+      max-width: 640px;
+    }
+    .faq-item.open .faq-body { display: block; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+    /* Trust card */
+    .trust-card {
+      padding: 2rem;
+      border: 1px solid #363330;
+      border-radius: 2px;
+    }
+    .trust-card-light {
+      padding: 2rem;
+      border: 1px solid #DAD6CF;
+      border-radius: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAV ────────────────────────────────────────────────────────────── -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-mp-deep border-b border-mp-border">
+    <div class="max-w-[1200px] mx-auto px-6 flex items-center justify-between h-[60px]">
+      <a href="index.html" class="font-display text-[1.4rem] tracking-[0.12em] text-mp-text">MONPRO</a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="produkte.html" class="nav-link">Produkte</a>
+        <a href="service.html"  class="nav-link text-mp-text">Service</a>
+        <a href="index.html#referenzen" class="nav-link">Referenzen</a>
+        <a href="#kontakt"      class="nav-link">Kontakt</a>
+      </div>
+      <a href="#kontakt" class="hidden md:block btn-primary" style="padding:0.625rem 1.5rem; font-size:0.75rem;">Angebot anfragen</a>
+      <button id="nav-toggle" class="md:hidden flex flex-col gap-[5px] p-2" aria-label="Menü">
+        <span class="w-5 h-[1.5px] bg-mp-text block"></span>
+        <span class="w-5 h-[1.5px] bg-mp-text block"></span>
+        <span class="w-3 h-[1.5px] bg-mp-accent block"></span>
+      </button>
+    </div>
+    <div id="nav-menu" class="hidden md:hidden bg-mp-mid border-t border-mp-border px-6 py-6 flex flex-col gap-5">
+      <a href="produkte.html" class="nav-link text-mp-text">Produkte</a>
+      <a href="service.html"  class="nav-link text-mp-text">Service</a>
+      <a href="index.html#referenzen" class="nav-link text-mp-text">Referenzen</a>
+      <a href="#kontakt"      class="nav-link text-mp-text">Kontakt</a>
+      <a href="#kontakt" class="btn-primary mt-2 text-center">Angebot anfragen</a>
+    </div>
+  </nav>
+
+
+  <!-- ─── PAGE HEADER ─────────────────────────────────────────────────────── -->
+  <header class="pt-[60px] bg-mp-deep border-b border-mp-border">
+    <div class="max-w-[1200px] mx-auto px-6 py-16 md:py-24">
+      <span class="eyebrow mb-5">Service</span>
+      <h1 class="font-display text-mp-text" style="font-size: clamp(3rem, 8vw, 6.5rem); line-height: 1; letter-spacing: -0.01em;">
+        BERATUNG.<br>MONTAGE.<br>GARANTIE.
+      </h1>
+    </div>
+  </header>
+
+
+  <!-- ─── INTRO ─────────────────────────────────────────────────────────────── -->
+  <section class="py-20 bg-mp-mid">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div class="lg:col-span-5">
+          <span class="eyebrow mb-5">Was uns ausmacht</span>
+          <h2 class="font-display text-mp-text" style="font-size: clamp(1.75rem, 3.5vw, 2.75rem); line-height: 1.1;">
+            ALLES AUS<br>EINER HAND.
+          </h2>
+        </div>
+        <div class="lg:col-span-7 flex flex-col gap-5">
+          <p class="text-mp-muted text-sm leading-relaxed">
+            Bei Monpro Freudenberg übernehmen wir den gesamten Prozess — von der ersten Idee bis zur fertigen Terrasse. Kein Subunternehmer, keine langen Lieferketten, keine Verantwortungslücken. Sie haben einen Ansprechpartner für alles.
+          </p>
+          <p class="text-mp-muted text-sm leading-relaxed">
+            Wir arbeiten ausschließlich mit geprüften Aluminium-Profilen und Markenglas. Jede Anlage wird nach statischen Vorgaben berechnet und witterungsbeständig verarbeitet — damit Sie 10 Jahre Garantie mit gutem Gewissen geben können.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── PROCESS ──────────────────────────────────────────────────────────── -->
+  <section class="py-20 bg-mp-deep">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <div class="mb-14">
+        <span class="eyebrow mb-5">Ablauf</span>
+        <h2 class="font-display text-mp-text" style="font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.05;">
+          SO ARBEITEN WIR.
+        </h2>
+      </div>
+
+      <div>
+        <div class="process-step">
+          <div class="process-num">01</div>
+          <div>
+            <h3 class="font-display text-mp-text mb-3" style="font-size: 1.625rem;">BERATUNG VOR ORT</h3>
+            <p class="text-mp-muted text-sm leading-relaxed max-w-xl">
+              Wir kommen kostenlos und unverbindlich zu Ihnen. Vor Ort nehmen wir alle Maße auf, beurteilen die bauliche Situation und beraten Sie zu Materialien, Dachformen und Optionen. Kein Druck, keine Pauschalangebote.
+            </p>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="process-num">02</div>
+          <div>
+            <h3 class="font-display text-mp-text mb-3" style="font-size: 1.625rem;">ANGEBOT & PLANUNG</h3>
+            <p class="text-mp-muted text-sm leading-relaxed max-w-xl">
+              Sie erhalten ein schriftliches Festpreisangebot mit Grundrisszeichnung. Keine Zusatzkosten, keine Überraschungen. Auf Wunsch zeigen wir Ihnen Muster und Farbtöne beim Vorort-Termin oder in unserem Büro.
+            </p>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="process-num">03</div>
+          <div>
+            <h3 class="font-display text-mp-text mb-3" style="font-size: 1.625rem;">FERTIGUNG & LIEFERUNG</h3>
+            <p class="text-mp-muted text-sm leading-relaxed max-w-xl">
+              Alle Profile werden nach Ihren Maßen gefertigt und pulverbeschichtet geliefert. Lieferzeit in der Regel 3–5 Wochen. Sie erhalten einen festen Montagetermin, bevor das Material das Werk verlässt.
+            </p>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="process-num">04</div>
+          <div>
+            <h3 class="font-display text-mp-text mb-3" style="font-size: 1.625rem;">MONTAGE</h3>
+            <p class="text-mp-muted text-sm leading-relaxed max-w-xl">
+              Unser eigenes Montageteam baut die Anlage fachgerecht auf — in der Regel innerhalb von 1–2 Tagen. Wir hinterlassen eine saubere Baustelle und nehmen alle Verpackungen mit.
+            </p>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="process-num">05</div>
+          <div>
+            <h3 class="font-display text-mp-text mb-3" style="font-size: 1.625rem;">ABNAHME & GARANTIE</h3>
+            <p class="text-mp-muted text-sm leading-relaxed max-w-xl">
+              Gemeinsame Abnahme mit Einweisung in alle Funktionen. Sie erhalten Ihre Garantieunterlagen und einen direkten Ansprechpartner für Fragen oder Wartung. 10 Jahre Garantie auf Material und Verarbeitung.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── TRUST SIGNALS ────────────────────────────────────────────────────── -->
+  <section class="py-20 bg-mp-light">
+    <div class="max-w-[1200px] mx-auto px-6">
+
+      <div class="mb-14">
+        <span class="eyebrow mb-5 text-mp-accent">Warum Monpro</span>
+        <h2 class="font-display text-mp-deep" style="font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.05;">
+          QUALITÄT,<br>DIE MAN SIEHT.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+        <div class="trust-card-light bg-mp-white">
+          <p class="font-display text-mp-accent mb-3" style="font-size: 2.5rem; line-height: 1;">12+</p>
+          <p class="font-semibold text-mp-deep text-base mb-2">Jahre Erfahrung</p>
+          <p class="text-mp-dim text-sm leading-relaxed">Seit über einem Jahrzehnt bauen wir Terrassenüberdachungen in der Region Siegerland — mit dem gleichen Team, dem gleichen Anspruch.</p>
+        </div>
+
+        <div class="trust-card-light bg-mp-white">
+          <p class="font-display text-mp-accent mb-3" style="font-size: 2.5rem; line-height: 1;">200+</p>
+          <p class="font-semibold text-mp-deep text-base mb-2">Abgeschlossene Projekte</p>
+          <p class="text-mp-dim text-sm leading-relaxed">Von der einfachen Pultdachüberdachung bis zum motorisierten Lamellendach — wir haben alles schon einmal gebaut, und jedes war anders.</p>
+        </div>
+
+        <div class="trust-card-light bg-mp-white">
+          <p class="font-display text-mp-accent mb-3" style="font-size: 2.5rem; line-height: 1;">10J</p>
+          <p class="font-semibold text-mp-deep text-base mb-2">Garantie auf Material</p>
+          <p class="text-mp-dim text-sm leading-relaxed">Wir stehen zu unserer Arbeit. 10 Jahre Garantie auf Aluminium-Profile, Glasscheiben und Mechanik — schriftlich, ohne Einschränkungen.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── FAQ ──────────────────────────────────────────────────────────────── -->
+  <section class="py-20 bg-mp-deep">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+
+        <div class="lg:col-span-4">
+          <span class="eyebrow mb-5">Häufige Fragen</span>
+          <h2 class="font-display text-mp-text" style="font-size: clamp(1.75rem, 3vw, 2.75rem); line-height: 1.1;">
+            ANTWORTEN<br>AUF EINEN BLICK.
+          </h2>
+        </div>
+
+        <div class="lg:col-span-8">
+
+          <div class="faq-item">
+            <button class="faq-trigger">
+              Brauche ich eine Baugenehmigung für eine Terrassenüberdachung?
+              <svg class="faq-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+                <line x1="10" y1="4" x2="10" y2="16"/><line x1="4" y1="10" x2="16" y2="10"/>
+              </svg>
+            </button>
+            <div class="faq-body">
+              In NRW sind viele Terrassenüberdachungen verfahrensfrei, wenn bestimmte Maßgrenzen eingehalten werden. Wir klären das bei der kostenlosen Erstberatung für Sie und weisen Sie auf eventuelle Einschränkungen hin.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger">
+              Wie lange dauert es von der Anfrage bis zur fertigen Terrasse?
+              <svg class="faq-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+                <line x1="10" y1="4" x2="10" y2="16"/><line x1="4" y1="10" x2="16" y2="10"/>
+              </svg>
+            </button>
+            <div class="faq-body">
+              In der Regel 5–8 Wochen von der Auftragserteilung bis zur Montage. Beratung und Angebot dauern ca. 1 Woche, die Fertigung 3–5 Wochen. Dann sind wir innerhalb von 1–2 Tagen fertig montiert.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger">
+              Welche Farben sind für das Aluminium erhältlich?
+              <svg class="faq-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+                <line x1="10" y1="4" x2="10" y2="16"/><line x1="4" y1="10" x2="16" y2="10"/>
+              </svg>
+            </button>
+            <div class="faq-body">
+              Wir liefern in allen RAL-Farben. Besonders gefragt sind Anthrazit (RAL 7016), Weißaluminium (RAL 9006), Schwarzgrau (RAL 7021) und Reinweiß (RAL 9010). Gegen Aufpreis sind auch Sonderfarben möglich.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger">
+              Funktionieren Lamellendächer auch im Winter?
+              <svg class="faq-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+                <line x1="10" y1="4" x2="10" y2="16"/><line x1="4" y1="10" x2="16" y2="10"/>
+              </svg>
+            </button>
+            <div class="faq-body">
+              Ja. Die geschlossenen Lamellen sind vollständig regendicht. Für Schneelast gelten statische Vorgaben, die wir in der Planung berücksichtigen. Optional ist eine Heizungsintegration in den Lamellen möglich.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger">
+              Bieten Sie auch Wartung und Reparatur an?
+              <svg class="faq-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+                <line x1="10" y1="4" x2="10" y2="16"/><line x1="4" y1="10" x2="16" y2="10"/>
+              </svg>
+            </button>
+            <div class="faq-body">
+              Ja. Wir warten und reparieren auch Anlagen, die wir nicht selbst montiert haben. Sprechen Sie uns einfach an — wir schauen uns die Situation unverbindlich an.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── CTA STRIP ─────────────────────────────────────────────────────────── -->
+  <section class="py-20 bg-mp-accent">
+    <div class="max-w-[1200px] mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
+      <div>
+        <h2 class="font-display text-mp-deep mb-2" style="font-size: clamp(1.75rem, 4vw, 3rem);">
+          KOSTENLOSE BERATUNG SICHERN
+        </h2>
+        <p class="text-mp-deep/70 text-sm">Vor-Ort-Termin, unverbindliches Festpreisangebot, keine Wartezeit.</p>
+      </div>
+      <a href="#kontakt"
+         class="shrink-0 bg-mp-deep text-mp-text font-bold text-sm tracking-wide uppercase px-8 py-4 rounded-[2px] hover:bg-mp-mid transition-colors duration-150">
+        Termin vereinbaren
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ─── KONTAKT ──────────────────────────────────────────────────────────── -->
+  <section id="kontakt" class="py-24 bg-mp-deep">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 xl:gap-24">
+
+        <div>
+          <span class="eyebrow mb-5">Kontakt</span>
+          <h2 class="font-display text-mp-text mb-8" style="font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.05;">
+            WIR SIND FÜR<br>SIE DA.
+          </h2>
+          <div class="space-y-8">
+            <div>
+              <p class="text-mp-muted text-[0.65rem] uppercase tracking-wider mb-2">Telefon</p>
+              <a href="tel:+4902734000000" class="text-mp-accent font-semibold text-lg hover:text-mp-acc-h transition-colors duration-150">
+                +49 (0) 2734 000 000
+              </a>
+            </div>
+            <div>
+              <p class="text-mp-muted text-[0.65rem] uppercase tracking-wider mb-2">E-Mail</p>
+              <a href="mailto:info@monpro-freudenberg.de" class="text-mp-text text-sm hover:text-mp-accent transition-colors duration-150">
+                info@monpro-freudenberg.de
+              </a>
+            </div>
+            <div>
+              <p class="text-mp-muted text-[0.65rem] uppercase tracking-wider mb-2">Adresse</p>
+              <p class="text-mp-muted text-sm leading-relaxed">Musterstraße 1<br>57258 Freudenberg</p>
+            </div>
+            <div>
+              <p class="text-mp-muted text-[0.65rem] uppercase tracking-wider mb-2">Öffnungszeiten</p>
+              <p class="text-mp-muted text-sm leading-relaxed">Mo–Fr: 08:00–17:00 Uhr<br>Sa: nach Vereinbarung</p>
+            </div>
+          </div>
+        </div>
+
+        <form class="flex flex-col gap-5" name="kontakt-service" method="POST" action="#">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div class="field">
+              <label for="name">Name *</label>
+              <input type="text" id="name" name="name" required placeholder="Max Mustermann">
+            </div>
+            <div class="field">
+              <label for="tel">Telefon</label>
+              <input type="tel" id="tel" name="tel" placeholder="+49 ...">
+            </div>
+          </div>
+          <div class="field">
+            <label for="email">E-Mail *</label>
+            <input type="email" id="email" name="email" required placeholder="max@beispiel.de">
+          </div>
+          <div class="field">
+            <label for="anliegen">Ihr Anliegen</label>
+            <input type="text" id="anliegen" name="anliegen" placeholder="z. B. Neubau Lamellendach, Wartung, Reparatur">
+          </div>
+          <div class="field">
+            <label for="nachricht">Nachricht</label>
+            <textarea id="nachricht" name="nachricht" rows="4" placeholder="Weitere Details ..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary text-center mt-2">Anfrage absenden</button>
+          <p class="text-mp-muted text-xs">* Pflichtfelder. Keine Weitergabe Ihrer Daten an Dritte.</p>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── FOOTER ────────────────────────────────────────────────────────────── -->
+  <footer class="border-t border-mp-border bg-mp-deep py-7">
+    <div class="max-w-[1200px] mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-5">
+      <a href="index.html" class="font-display text-[1.3rem] tracking-[0.12em] text-mp-text">MONPRO</a>
+      <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+        <a href="produkte.html"        class="nav-link text-mp-muted text-[0.7rem]">Produkte</a>
+        <a href="service.html"         class="nav-link text-mp-muted text-[0.7rem]">Service</a>
+        <a href="index.html#referenzen" class="nav-link text-mp-muted text-[0.7rem]">Referenzen</a>
+        <a href="#kontakt"             class="nav-link text-mp-muted text-[0.7rem]">Kontakt</a>
+        <a href="impressum.html"       class="nav-link text-mp-muted text-[0.7rem]">Impressum</a>
+        <a href="datenschutz.html"     class="nav-link text-mp-muted text-[0.7rem]">Datenschutz</a>
+      </nav>
+      <div class="flex flex-col items-center md:items-end gap-2">
+        <div class="flex items-center gap-4">
+          <a href="#" aria-label="Instagram" class="text-mp-muted hover:text-mp-accent transition-colors duration-150">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook" class="text-mp-muted hover:text-mp-accent transition-colors duration-150">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube" class="text-mp-muted hover:text-mp-accent transition-colors duration-150">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.96 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58a2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>
+          </a>
+        </div>
+        <p class="text-mp-muted text-[0.7rem]">© 2025 Monpro Freudenberg</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('nav-toggle').addEventListener('click', function () {
+      document.getElementById('nav-menu').classList.toggle('hidden');
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-trigger').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var item = this.closest('.faq-item');
+        var isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function (i) { i.classList.remove('open'); });
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+  </script>
+
+</body>
+</html>

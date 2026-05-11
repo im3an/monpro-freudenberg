@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design System — Monpro Freudenberg</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'mp-deep':   '#1F1D1A',
+            'mp-mid':    '#2C2926',
+            'mp-light':  '#F3F0EB',
+            'mp-white':  '#F8F5F0',
+            'mp-accent': '#C8903A',
+            'mp-acc-h':  '#B07528',
+            'mp-text':   '#F3F0EB',
+            'mp-muted':  '#9A9690',
+            'mp-dim':    '#6B6660',
+            'mp-border': '#363330',
+            'mp-brd-l':  '#DAD6CF',
+          },
+          fontFamily: {
+            display: ['Bebas Neue', 'sans-serif'],
+            body:    ['Inter', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #1F1D1A;
+      color: #F3F0EB;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* DS layout */
+    .ds-section { padding: 4rem 0; border-bottom: 1px solid #363330; }
+    .ds-label {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #C8903A;
+      margin-bottom: 2rem;
+    }
+    .ds-row { display: flex; flex-wrap: wrap; gap: 1rem; align-items: flex-start; }
+    .ds-col { display: flex; flex-direction: column; gap: 0.375rem; }
+    .ds-name {
+      font-size: 0.65rem;
+      color: #9A9690;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-family: 'Inter', monospace;
+    }
+    code {
+      font-family: 'Courier New', monospace;
+      font-size: 0.75rem;
+      background: #2C2926;
+      padding: 0.125rem 0.375rem;
+      border-radius: 2px;
+      color: #C8903A;
+    }
+
+    /* Swatches */
+    .swatch {
+      width: 80px;
+      height: 80px;
+      border-radius: 2px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .swatch-sm {
+      width: 48px;
+      height: 48px;
+      border-radius: 2px;
+    }
+
+    /* Buttons */
+    .btn-primary {
+      display: inline-block;
+      background: #C8903A;
+      color: #1F1D1A;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.875rem 2rem;
+      border-radius: 2px;
+      cursor: pointer;
+      border: none;
+      transition: background 140ms ease, transform 140ms ease;
+      text-decoration: none;
+    }
+    .btn-primary:hover { background: #B07528; transform: translateY(-1px); }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #9A9690;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid rgba(243,240,235,0.2);
+      padding: 0.875rem 2rem;
+      border-radius: 2px;
+      cursor: pointer;
+      background: none;
+      transition: border-color 140ms, color 140ms;
+    }
+    .btn-ghost:hover { border-color: #F3F0EB; color: #F3F0EB; }
+
+    .btn-sm {
+      display: inline-block;
+      background: #C8903A;
+      color: #1F1D1A;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.625rem 1.5rem;
+      border-radius: 2px;
+      cursor: pointer;
+      border: none;
+    }
+
+    /* Eyebrow */
+    .eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #C8903A;
+    }
+
+    /* Form */
+    .field { display: flex; flex-direction: column; gap: 0.375rem; }
+    .field label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #9A9690;
+    }
+    .field input, .field textarea {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9375rem;
+      background: #F8F5F0;
+      border: 1px solid #DAD6CF;
+      border-radius: 2px;
+      padding: 0.75rem 1rem;
+      color: #1F1D1A;
+      outline: none;
+      transition: border-color 140ms ease;
+      resize: none;
+      width: 100%;
+      max-width: 340px;
+    }
+    .field input:focus { border-color: #C8903A; }
+    .field input::placeholder { color: #B0ABA4; }
+
+    /* Photo placeholder */
+    .photo {
+      background: linear-gradient(160deg, #2C2926 0%, #1A1815 60%, #242120 100%);
+      position: relative;
+    }
+    .photo::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        -55deg,
+        transparent, transparent 12px,
+        rgba(200,144,58,0.03) 12px, rgba(200,144,58,0.03) 13px
+      );
+      pointer-events: none;
+    }
+
+    /* Portfolio card */
+    .ref-card { position: relative; overflow: hidden; cursor: pointer; }
+    .ref-card .ref-overlay {
+      opacity: 0;
+      position: absolute;
+      inset: 0;
+      background: rgba(31,29,26,0.75);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+      transition: opacity 200ms cubic-bezier(0.16,1,0.3,1);
+    }
+    .ref-card .ref-label {
+      transform: translateY(10px);
+      transition: transform 220ms cubic-bezier(0.16,1,0.3,1);
+    }
+    .ref-card:hover .ref-overlay { opacity: 1; }
+    .ref-card:hover .ref-label { transform: translateY(0); }
+
+    /* Feature list */
+    .feature-list { list-style: none; padding: 0; max-width: 360px; }
+    .feature-list li {
+      display: flex;
+      gap: 0.75rem;
+      font-size: 0.875rem;
+      color: #9A9690;
+      line-height: 1.6;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #363330;
+    }
+    .feature-list li::before { content: '—'; color: #C8903A; flex-shrink: 0; }
+
+    /* Sidebar nav */
+    .ds-nav a {
+      display: block;
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #9A9690;
+      text-decoration: none;
+      padding: 0.5rem 0;
+      border-left: 2px solid transparent;
+      padding-left: 1rem;
+      transition: color 140ms, border-color 140ms;
+    }
+    .ds-nav a:hover { color: #F3F0EB; border-color: #C8903A; }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="border-b border-mp-border bg-mp-mid">
+    <div class="max-w-[1200px] mx-auto px-6 py-6 flex items-center justify-between">
+      <div>
+        <p class="eyebrow mb-1">Monpro Freudenberg</p>
+        <h1 class="font-display text-mp-text text-4xl tracking-wide">DESIGN SYSTEM</h1>
+      </div>
+      <a href="index.html" class="btn-sm">← Zurück zur Website</a>
+    </div>
+  </div>
+
+  <div class="max-w-[1200px] mx-auto px-6 py-12 flex gap-16">
+
+    <!-- Sidebar -->
+    <aside class="hidden lg:block w-48 shrink-0">
+      <nav class="ds-nav sticky top-8 flex flex-col gap-1">
+        <a href="#farben">Farben</a>
+        <a href="#typografie">Typografie</a>
+        <a href="#abstände">Abstände</a>
+        <a href="#buttons">Buttons</a>
+        <a href="#formular">Formular</a>
+        <a href="#komponenten">Komponenten</a>
+        <a href="#fotos">Foto-Platzhalter</a>
+        <a href="#seiten">Seitenstruktur</a>
+        <a href="#lieferung">Lieferung</a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="flex-1 min-w-0">
+
+
+      <!-- ── FARBEN ─────────────────────────────────────────────────────── -->
+      <section class="ds-section" id="farben">
+        <p class="ds-label">01 — Farben</p>
+
+        <p class="text-mp-muted text-sm mb-8 max-w-xl leading-relaxed">
+          Strategie: <strong class="text-mp-text">Committed</strong> — Anthrazit trägt ~65% der Oberfläche. Off-weiß bricht die Tiefe in hellen Abschnitten. Amber-Gold ist der einzige Akzent, sparsam eingesetzt.
+        </p>
+
+        <p class="text-mp-muted text-xs uppercase tracking-wider mb-4">Oberflächen</p>
+        <div class="ds-row mb-10">
+          <div class="ds-col">
+            <div class="swatch" style="background:#1F1D1A;"></div>
+            <span class="ds-name">mp-deep</span>
+            <code>#1F1D1A</code>
+            <span class="text-mp-muted text-[0.65rem]">Primärer Hintergrund</span>
+          </div>
+          <div class="ds-col">
+            <div class="swatch" style="background:#2C2926;"></div>
+            <span class="ds-name">mp-mid</span>
+            <code>#2C2926</code>
+            <span class="text-mp-muted text-[0.65rem]">Sekundäre Panels</span>
+          </div>
+          <div class="ds-col">
+            <div class="swatch" style="background:#F3F0EB; border: 1px solid #DAD6CF;"></div>
+            <span class="ds-name">mp-light</span>
+            <code>#F3F0EB</code>
+            <span class="text-mp-muted text-[0.65rem]">Helle Abschnitte</span>
+          </div>
+          <div class="ds-col">
+            <div class="swatch" style="background:#F8F5F0; border: 1px solid #DAD6CF;"></div>
+            <span class="ds-name">mp-white</span>
+            <code>#F8F5F0</code>
+            <span class="text-mp-muted text-[0.65rem]">Formular-Hintergrund</span>
+          </div>
+        </div>
+
+        <p class="text-mp-muted text-xs uppercase tracking-wider mb-4">Akzent</p>
+        <div class="ds-row mb-10">
+          <div class="ds-col">
+            <div class="swatch" style="background:#C8903A;"></div>
+            <span class="ds-name">mp-accent</span>
+            <code>#C8903A</code>
+            <span class="text-mp-muted text-[0.65rem]">Warm Amber-Gold</span>
+          </div>
+          <div class="ds-col">
+            <div class="swatch" style="background:#B07528;"></div>
+            <span class="ds-name">mp-acc-h</span>
+            <code>#B07528</code>
+            <span class="text-mp-muted text-[0.65rem]">Hover-Zustand</span>
+          </div>
+        </div>
+
+        <p class="text-mp-muted text-xs uppercase tracking-wider mb-4">Text</p>
+        <div class="ds-row mb-10">
+          <div class="ds-col">
+            <div class="swatch-sm" style="background:#F3F0EB;"></div>
+            <span class="ds-name">mp-text</span>
+            <code>#F3F0EB</code>
+            <span class="text-mp-muted text-[0.65rem]">Primär auf Dunkel</span>
+          </div>
+          <div class="ds-col">
+            <div class="swatch-sm" style="background:#9A9690;"></div>
+            <span class="ds-name">mp-muted</span>
+            <code>#9A9690</code>
+            <span class="text-mp-muted text-[0.65rem]">Sekundär auf Dunkel</span>
+          </div>
+          <div class="ds-col">
+            <div class="swatch-sm" style="background:#6B6660;"></div>
+            <span class="ds-name">mp-dim</span>
+            <code>#6B6660</code>
+            <span class="text-mp-muted text-[0.65rem]">Sekundär auf Hell</span>
+          </div>
+          <div class="ds-col">
+            <div class="swatch-sm" style="background:#1F1D1A; border:1px solid #363330;"></div>
+            <span class="ds-name">mp-deep</span>
+            <code>#1F1D1A</code>
+            <span class="text-mp-muted text-[0.65rem]">Primär auf Hell</span>
+          </div>
+        </div>
+
+        <p class="text-mp-muted text-xs uppercase tracking-wider mb-4">Rahmen</p>
+        <div class="ds-row">
+          <div class="ds-col">
+            <div class="swatch-sm" style="background:#363330;"></div>
+            <span class="ds-name">mp-border</span>
+            <code>#363330</code>
+            <span class="text-mp-muted text-[0.65rem]">Auf dunklen Flächen</span>
+          </div>
+          <div class="ds-col">
+            <div class="swatch-sm" style="background:#DAD6CF;"></div>
+            <span class="ds-name">mp-brd-l</span>
+            <code>#DAD6CF</code>
+            <span class="text-mp-muted text-[0.65rem]">Auf hellen Flächen</span>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ── TYPOGRAFIE ─────────────────────────────────────────────────── -->
+      <section class="ds-section" id="typografie">
+        <p class="ds-label">02 — Typografie</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10">
+          <div>
+            <p class="ds-name mb-3">Display — Bebas Neue</p>
+            <p class="font-display text-mp-accent text-6xl leading-none mb-2">Aa</p>
+            <p class="font-display text-mp-text text-2xl mb-4">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>0123456789</p>
+            <code>font-family: 'Bebas Neue', sans-serif</code>
+            <p class="text-mp-muted text-xs mt-2">Einsatz: H1–H3, Zahlen, Eyebrow-Größen, Nav-Logo</p>
+          </div>
+          <div>
+            <p class="ds-name mb-3">Body — Inter</p>
+            <p class="font-body text-mp-text text-4xl font-bold leading-none mb-2">Aa</p>
+            <p class="font-body text-mp-text text-sm mb-4">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789</p>
+            <code>font-family: 'Inter', sans-serif</code>
+            <p class="text-mp-muted text-xs mt-2">Einsatz: Body, Labels, Nav-Links, Buttons, Formulare</p>
+          </div>
+        </div>
+
+        <p class="text-mp-muted text-xs uppercase tracking-wider mb-6">Skala</p>
+        <div class="space-y-6">
+          <div class="flex items-baseline gap-6 flex-wrap">
+            <span class="ds-name w-20 shrink-0">Hero</span>
+            <p class="font-display text-mp-text leading-none" style="font-size: clamp(3.25rem, 11vw, 8.75rem);">TERRASSEN</p>
+            <code class="self-center">clamp(3.25rem, 11vw, 8.75rem) · Bebas Neue</code>
+          </div>
+          <div class="flex items-baseline gap-6 flex-wrap">
+            <span class="ds-name w-20 shrink-0">H1</span>
+            <p class="font-display text-mp-text" style="font-size: clamp(3rem, 8vw, 6.5rem); line-height:1;">UNSERE PRODUKTE</p>
+            <code class="self-center">clamp(3rem, 8vw, 6.5rem) · Bebas Neue</code>
+          </div>
+          <div class="flex items-baseline gap-6 flex-wrap">
+            <span class="ds-name w-20 shrink-0">H2</span>
+            <p class="font-display text-mp-text" style="font-size: clamp(2.25rem, 5vw, 4rem); line-height:1.05;">WAS WIR BAUEN</p>
+            <code class="self-center">clamp(2.25rem, 5vw, 4rem) · Bebas Neue</code>
+          </div>
+          <div class="flex items-baseline gap-6 flex-wrap">
+            <span class="ds-name w-20 shrink-0">H3</span>
+            <p class="font-display text-mp-text" style="font-size: clamp(1.75rem, 3.5vw, 2.75rem); line-height:1.1;">TERRASSENÜBERDACHUNG</p>
+            <code class="self-center">clamp(1.75rem, 3.5vw, 2.75rem) · Bebas Neue</code>
+          </div>
+          <div class="flex items-baseline gap-6 flex-wrap">
+            <span class="ds-name w-20 shrink-0">Lead</span>
+            <p class="text-mp-text text-lg leading-relaxed">Kostenlose Beratung vor Ort</p>
+            <code class="self-center">1.125rem · Inter 400</code>
+          </div>
+          <div class="flex items-baseline gap-6 flex-wrap">
+            <span class="ds-name w-20 shrink-0">Body</span>
+            <p class="text-mp-muted text-sm leading-relaxed max-w-sm">Aluminium-Überdachungen für Terrassen jeder Größe. Robust, wartungsarm und auf Ihre Maße gefertigt.</p>
+            <code class="self-center">0.875rem · Inter 400 · lh 1.75</code>
+          </div>
+          <div class="flex items-baseline gap-6 flex-wrap">
+            <span class="ds-name w-20 shrink-0">Eyebrow</span>
+            <p class="eyebrow">Freudenberg · Aluminium</p>
+            <code class="self-center">0.6875rem · Inter 600 · ls 0.18em</code>
+          </div>
+          <div class="flex items-baseline gap-6 flex-wrap">
+            <span class="ds-name w-20 shrink-0">Nav</span>
+            <p class="text-mp-muted" style="font-size:0.8rem; font-weight:500; letter-spacing:0.09em; text-transform:uppercase;">Produkte</p>
+            <code class="self-center">0.8rem · Inter 500 · ls 0.09em</code>
+          </div>
+          <div class="flex items-baseline gap-6 flex-wrap">
+            <span class="ds-name w-20 shrink-0">Caption</span>
+            <p class="text-mp-muted" style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase;">Freudenberg · 2024</p>
+            <code class="self-center">0.65rem · Inter 400 · ls 0.1em</code>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ── ABSTÄNDE ───────────────────────────────────────────────────── -->
+      <section class="ds-section" id="abstände">
+        <p class="ds-label">03 — Abstände & Layout</p>
+        <p class="text-mp-muted text-sm mb-8 leading-relaxed max-w-xl">
+          Max-Breite: <code>1200px</code> — immer zentriert, <code>px-6</code> seitlicher Innenabstand. Sektionen wechseln zwischen Dark und Light. Sektions-Padding: <code>py-24</code> (Desktop) / <code>py-16</code> (Mobil).
+        </p>
+        <div class="flex flex-wrap gap-4 items-end">
+          <div class="ds-col">
+            <div style="background:#C8903A; width:4px; height:64px; border-radius:1px;"></div>
+            <code>--space-1 · 4px</code>
+          </div>
+          <div class="ds-col">
+            <div style="background:#C8903A; width:4px; height:72px; border-radius:1px;"></div>
+            <code>--space-2 · 8px</code>
+          </div>
+          <div class="ds-col">
+            <div style="background:#C8903A; width:4px; height:76px; border-radius:1px;"></div>
+            <code>--space-3 · 12px</code>
+          </div>
+          <div class="ds-col">
+            <div style="background:#C8903A; width:4px; height:80px; border-radius:1px;"></div>
+            <code>--space-4 · 16px</code>
+          </div>
+          <div class="ds-col">
+            <div style="background:#C8903A; width:4px; height:88px; border-radius:1px;"></div>
+            <code>--space-6 · 24px</code>
+          </div>
+          <div class="ds-col">
+            <div style="background:#C8903A; width:4px; height:96px; border-radius:1px;"></div>
+            <code>--space-8 · 32px</code>
+          </div>
+          <div class="ds-col">
+            <div style="background:#C8903A; width:4px; height:112px; border-radius:1px;"></div>
+            <code>--space-12 · 48px</code>
+          </div>
+          <div class="ds-col">
+            <div style="background:#C8903A; width:4px; height:128px; border-radius:1px;"></div>
+            <code>--space-16 · 64px</code>
+          </div>
+          <div class="ds-col">
+            <div style="background:#C8903A; width:4px; height:160px; border-radius:1px;"></div>
+            <code>--space-24 · 96px</code>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ── BUTTONS ────────────────────────────────────────────────────── -->
+      <section class="ds-section" id="buttons">
+        <p class="ds-label">04 — Buttons</p>
+        <div class="ds-row flex-col gap-8">
+
+          <div>
+            <p class="ds-name mb-3">Primary — Haupt-CTA</p>
+            <div class="ds-row items-center gap-6">
+              <button class="btn-primary">Angebot anfragen</button>
+              <button class="btn-primary" disabled style="opacity:0.4; cursor:not-allowed;">Angebot anfragen</button>
+            </div>
+            <p class="text-mp-muted text-xs mt-3">bg-mp-accent · text-mp-deep · Inter 700 · uppercase · ls 0.1em · radius 2px · hover: bg-mp-acc-h + translateY(-1px)</p>
+          </div>
+
+          <div>
+            <p class="ds-name mb-3">Ghost — Sekundäre Aktion</p>
+            <button class="btn-ghost">Mehr erfahren <span style="color:#C8903A;">→</span></button>
+            <p class="text-mp-muted text-xs mt-3">border 1px rgba(mp-text, 0.2) · hover: border-color mp-text · color mp-text</p>
+          </div>
+
+          <div>
+            <p class="ds-name mb-3">Small — Nav CTA</p>
+            <button class="btn-sm">Angebot anfragen</button>
+            <p class="text-mp-muted text-xs mt-3">Gleiche Farben wie Primary · padding 0.625rem 1.5rem · text 0.75rem</p>
+          </div>
+
+          <div class="bg-mp-accent p-8 rounded-[2px]">
+            <p class="ds-name mb-3" style="color: rgba(31,29,26,0.6);">Auf Akzent-Hintergrund (CTA Strip)</p>
+            <a href="#" style="display:inline-block; background:#1F1D1A; color:#F3F0EB; font-family:'Inter',sans-serif; font-size:0.8rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:0.875rem 2rem; border-radius:2px; text-decoration:none;">
+              Termin vereinbaren
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- ── FORMULAR ───────────────────────────────────────────────────── -->
+      <section class="ds-section" id="formular">
+        <p class="ds-label">05 — Formular</p>
+        <p class="text-mp-muted text-sm mb-8">Formulare stehen immer auf dunklem Hintergrund. Inputs haben weißen Hintergrund (mp-white). Focus: Border mp-accent.</p>
+        <div class="flex flex-col gap-5 max-w-md">
+          <div class="field">
+            <label>Name *</label>
+            <input type="text" placeholder="Max Mustermann">
+          </div>
+          <div class="field">
+            <label>E-Mail *</label>
+            <input type="email" placeholder="max@beispiel.de">
+          </div>
+          <div class="field">
+            <label>Telefon</label>
+            <input type="tel" placeholder="+49 ...">
+          </div>
+          <div class="field">
+            <label>Nachricht</label>
+            <textarea rows="3" placeholder="Beschreiben Sie kurz Ihr Vorhaben ..." style="max-width:340px;"></textarea>
+          </div>
+          <button class="btn-primary" style="max-width:340px; text-align:center;">Anfrage absenden</button>
+          <p class="text-mp-muted text-xs">* Pflichtfelder. Keine Weitergabe Ihrer Daten an Dritte.</p>
+        </div>
+      </section>
+
+
+      <!-- ── KOMPONENTEN ────────────────────────────────────────────────── -->
+      <section class="ds-section" id="komponenten">
+        <p class="ds-label">06 — Komponenten</p>
+
+        <!-- Value strip item -->
+        <p class="ds-name mb-4">Value Strip Item</p>
+        <div class="bg-mp-light p-8 max-w-xs mb-10">
+          <div style="width:32px; height:2px; background:#C8903A; margin-bottom:1rem;"></div>
+          <p style="font-weight:600; color:#1F1D1A; margin-bottom:0.375rem;">Kostenlose Beratung</p>
+          <p style="font-size:0.875rem; color:#6B6660; line-height:1.6;">Wir kommen zu Ihnen vor Ort.</p>
+        </div>
+
+        <!-- Eyebrow + H2 combo -->
+        <p class="ds-name mb-4">Eyebrow + Headline Combo</p>
+        <div class="mb-10">
+          <span class="eyebrow block mb-4">Unsere Leistungen</span>
+          <h2 class="font-display text-mp-text" style="font-size: clamp(2.25rem, 5vw, 4rem);">WAS WIR BAUEN</h2>
+        </div>
+
+        <!-- Stat block -->
+        <p class="ds-name mb-4">Stat Block (Über uns)</p>
+        <div class="grid grid-cols-3 gap-6 max-w-sm mb-10">
+          <div style="border-top: 1px solid #363330; padding-top: 1.5rem;">
+            <p class="font-display text-mp-accent mb-2" style="font-size: 2.5rem; line-height: 1;">12+</p>
+            <p class="text-mp-muted" style="font-size:0.75rem; line-height:1.4;">Jahre Erfahrung</p>
+          </div>
+          <div style="border-top: 1px solid #363330; padding-top: 1.5rem;">
+            <p class="font-display text-mp-accent mb-2" style="font-size: 2.5rem; line-height: 1;">200+</p>
+            <p class="text-mp-muted" style="font-size:0.75rem; line-height:1.4;">Projekte</p>
+          </div>
+          <div style="border-top: 1px solid #363330; padding-top: 1.5rem;">
+            <p class="font-display text-mp-accent mb-2" style="font-size: 2.5rem; line-height: 1;">10J</p>
+            <p class="text-mp-muted" style="font-size:0.75rem; line-height:1.4;">Garantie</p>
+          </div>
+        </div>
+
+        <!-- Feature list -->
+        <p class="ds-name mb-4">Feature List (Produkt-Seite)</p>
+        <ul class="feature-list mb-10">
+          <li>Pulverbeschichtetes Aluminium, korrosionsbeständig</li>
+          <li>Ausführung mit Stegplatten, Glas oder Lichtplatten</li>
+          <li>Maßanfertigung ab 2 × 2 m</li>
+        </ul>
+
+        <!-- Service step -->
+        <p class="ds-name mb-4">Prozess-Schritt</p>
+        <div style="border-top: 2px solid #C8903A; padding: 2rem 1.5rem 2rem 0; position: relative; max-width: 280px;" class="mb-10">
+          <h3 class="font-display text-mp-deep mb-2" style="font-size: 1.625rem; color: #1F1D1A;">BERATUNG</h3>
+          <p style="font-size:0.875rem; color:#6B6660; line-height:1.6;">Wir kommen kostenlos zu Ihnen.</p>
+          <span style="font-family:'Bebas Neue',sans-serif; font-size:5rem; color:rgba(107,102,96,0.12); position:absolute; bottom:0.25rem; right:0; line-height:1; user-select:none;" class="bg-mp-light p-2">01</span>
+        </div>
+        <p class="text-mp-muted text-xs">Beachte: Schritt-Nummern sind auf bg-mp-light. Der transparente Hintergrund-Text braucht die gleiche Hintergrundfarbe.</p>
+      </section>
+
+
+      <!-- ── FOTO-PLATZHALTER ───────────────────────────────────────────── -->
+      <section class="ds-section" id="fotos">
+        <p class="ds-label">07 — Foto-Platzhalter & Portfolio-Karte</p>
+        <p class="text-mp-muted text-sm mb-8 max-w-xl leading-relaxed">
+          Bis echte Projektfotos vom Kunden geliefert werden, zeigen diese CSS-Panels die korrekten Seitenverhältnisse. Zum Ersetzen: <code>&lt;div class="photo"&gt;</code> durch <code>&lt;img src="..." alt="..." loading="lazy"&gt;</code> ersetzen. Immer <code>object-fit: cover</code> und <code>width: 100%; height: 100%</code>.
+        </p>
+        <div class="grid grid-cols-12 gap-2 mb-6">
+          <div class="ref-card col-span-8 photo" style="aspect-ratio:16/9;">
+            <div class="ref-overlay">
+              <div class="ref-label">
+                <span class="eyebrow mb-1 block">Freudenberg · 2024</span>
+                <p class="font-display text-mp-text text-xl">TERRASSENÜBERDACHUNG GLASDACH</p>
+              </div>
+            </div>
+          </div>
+          <div class="ref-card col-span-4 photo" style="aspect-ratio:4/3;">
+            <div class="ref-overlay">
+              <div class="ref-label">
+                <span class="eyebrow mb-1 block">Siegen · 2024</span>
+                <p class="font-display text-mp-text text-lg">LAMELLENDACH</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ds-row gap-4">
+          <div class="ds-col">
+            <div class="photo" style="width:160px; aspect-ratio:16/9;"></div>
+            <code>16:9 — Hero, große Karten</code>
+          </div>
+          <div class="ds-col">
+            <div class="photo" style="width:160px; aspect-ratio:4/3;"></div>
+            <code>4:3 — Portfolio-Karten</code>
+          </div>
+          <div class="ds-col">
+            <div class="photo" style="width:160px; aspect-ratio:16/10;"></div>
+            <code>16:10 — Produkt-Reihen</code>
+          </div>
+          <div class="ds-col">
+            <div class="photo" style="width:160px; aspect-ratio:1/1;"></div>
+            <code>1:1 — Quadrat</code>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ── SEITENSTRUKTUR ─────────────────────────────────────────────── -->
+      <section class="ds-section" id="seiten">
+        <p class="ds-label">08 — Seitenstruktur</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+          <div style="border: 1px solid #363330; border-radius: 2px; overflow: hidden;">
+            <div style="background:#C8903A; padding:0.5rem 0.75rem;">
+              <p style="font-family:'Bebas Neue',sans-serif; color:#1F1D1A; font-size:0.9rem; letter-spacing:0.08em;">INDEX.HTML</p>
+            </div>
+            <div style="padding: 1rem; font-size: 0.75rem; color: #9A9690; line-height: 1.8;">
+              <div style="background:#363330; padding:0.25rem 0.5rem; border-radius:1px; margin-bottom:0.25rem; color:#F3F0EB;">Nav (fixed)</div>
+              <div style="background:#2C2926; padding:0.25rem 0.5rem; border-radius:1px; margin-bottom:0.25rem;">Hero (min-h-screen)</div>
+              <div style="background:#F3F0EB; padding:0.25rem 0.5rem; border-radius:1px; margin-bottom:0.25rem; color:#1F1D1A;">Value Strip (light)</div>
+              <div style="background:#1F1D1A; padding:0.25rem 0.5rem; border-radius:1px; margin-bottom:0.25rem;">Produkte (2 Reihen)</div>
+              <div style="background:#2C2926; padding:0.25rem 0.5rem; border-radius:1px; margin-bottom:0.25rem;">Referenzen (Grid)</div>
+              <div style="background:#1F1D1A; padding:0.25rem 0.5rem; border-radius:1px; margin-bottom:0.25rem;">Über uns + Stats</div>
+              <div style="background:#F3F0EB; padding:0.25rem 0.5rem; border-radius:1px; margin-bottom:0.25rem; color:#1F1D1A;">Service Schritte (light)</div>
+              <div style="background:#1F1D1A; padding:0.25rem 0.5rem; border-radius:1px; margin-bottom:0.25rem;">Kontakt + Formular</div>
+              <div style="background:#363330; padding:0.25rem 0.5rem; border-radius:1px; color:#F3F0EB;">Footer</div>
+            </div>
+          </div>
+
+          <div style="border: 1px solid #363330; border-radius: 2px; overflow: hidden;">
+            <div style="background:#C8903A; padding:0.5rem 0.75rem;">
+              <p style="font-family:'Bebas Neue',sans-serif; color:#1F1D1A; font-size:0.9rem; letter-spacing:0.08em;">PRODUKTE.HTML</p>
+            </div>
+            <div style="padding: 1rem; font-size: 0.75rem; color: #9A9690; line-height: 1.8;">
+              <div style="background:#363330; padding:0.25rem 0.5rem; border-radius:1px; margin-bottom:0.25rem; color:#F3F0EB;">Nav (fixed)</div>
+              <div style="background:#1F1D1A; padding:0.25rem 0.5rem; border-radius:1px; margin-bottom:0.25rem;">Page Header</div>
+              <div style="background:#2C2926; padding:0.25rem 0.5rem; border-radius:1px; margin-bottom:0.25rem;">Produkt 01 (Foto L)</div>
+              <div style="background:#1F1D1A; padding:0.25rem 0.5rem; border-radius:1px; margin-bottom:0.25rem;">Produkt 02 (Foto R)</div>
+              <div style="background:#2C2926; padding:0.25rem 0.5rem; border-radius:1px; margin-bottom:0.25rem;">Produkt 03 (Foto L)</div>
+              <div style="background:#1F1D1A; padding:0.25rem 0.5rem; border-radius:1px; margin-bottom:0.25rem;">Produkt 04 (Foto R)</div>
+              <div style="background:#C8903A; padding:0.25rem 0.5rem; border-radius:1px; margin-bottom:0.25rem; color:#1F1D1A;">CTA Strip (accent)</div>
+              <div style="background:#1F1D1A; padding:0.25rem 0.5rem; border-radius:1px; margin-bottom:0.25rem;">Kontakt + Formular</div>
+              <div style="background:#363330; padding:0.25rem 0.5rem; border-radius:1px; color:#F3F0EB;">Footer</div>
+            </div>
+          </div>
+
+          <div style="border: 1px solid #363330; border-radius: 2px; overflow: hidden;">
+            <div style="background:#C8903A; padding:0.5rem 0.75rem;">
+              <p style="font-family:'Bebas Neue',sans-serif; color:#1F1D1A; font-size:0.9rem; letter-spacing:0.08em;">SERVICE.HTML</p>
+            </div>
+            <div style="padding: 1rem; font-size: 0.75rem; color: #9A9690; line-height: 1.8;">
+              <div style="background:#363330; padding:0.25rem 0.5rem; border-radius:1px; margin-bottom:0.25rem; color:#F3F0EB;">Nav (fixed)</div>
+              <div style="background:#1F1D1A; padding:0.25rem 0.5rem; border-radius:1px; margin-bottom:0.25rem;">Page Header</div>
+              <div style="background:#2C2926; padding:0.25rem 0.5rem; border-radius:1px; margin-bottom:0.25rem;">Intro (Alles aus einer Hand)</div>
+              <div style="background:#1F1D1A; padding:0.25rem 0.5rem; border-radius:1px; margin-bottom:0.25rem;">Ablauf 01–05</div>
+              <div style="background:#F3F0EB; padding:0.25rem 0.5rem; border-radius:1px; margin-bottom:0.25rem; color:#1F1D1A;">Trust Signals (light)</div>
+              <div style="background:#1F1D1A; padding:0.25rem 0.5rem; border-radius:1px; margin-bottom:0.25rem;">FAQ Akkordeon</div>
+              <div style="background:#C8903A; padding:0.25rem 0.5rem; border-radius:1px; margin-bottom:0.25rem; color:#1F1D1A;">CTA Strip (accent)</div>
+              <div style="background:#1F1D1A; padding:0.25rem 0.5rem; border-radius:1px; margin-bottom:0.25rem;">Kontakt + Formular</div>
+              <div style="background:#363330; padding:0.25rem 0.5rem; border-radius:1px; color:#F3F0EB;">Footer</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- ── LIEFERUNG / WORDPRESS ──────────────────────────────────────── -->
+      <section class="ds-section" id="lieferung" style="border-bottom:none;">
+        <p class="ds-label">09 — Lieferung & WordPress-Migration</p>
+        <p class="text-mp-muted text-sm mb-8 max-w-xl leading-relaxed">
+          Die 3 HTML-Dateien sind direkt browserfertig und können sofort dem Kunden gezeigt werden. Für die WordPress-Übergabe auf Ionos:
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-2xl">
+
+          <div style="border: 1px solid #363330; border-radius: 2px; padding: 1.5rem;">
+            <p class="font-display text-mp-accent mb-3" style="font-size:1.25rem; letter-spacing:0.05em;">STACK</p>
+            <ul style="font-size:0.8rem; color:#9A9690; line-height:2; list-style:none; padding:0;">
+              <li>→ WordPress 6.x auf Ionos Webhosting</li>
+              <li>→ Custom Theme (kein Elementor, kein Divi)</li>
+              <li>→ Tailwind CSS per CDN (Prototyp) oder NPM-Build</li>
+              <li>→ ACF Lite für Portfolio Custom Post Type</li>
+              <li>→ Contact Form 7 für Kontaktformulare</li>
+              <li>→ Yoast SEO Free für Meta-Tags</li>
+            </ul>
+          </div>
+
+          <div style="border: 1px solid #363330; border-radius: 2px; padding: 1.5rem;">
+            <p class="font-display text-mp-accent mb-3" style="font-size:1.25rem; letter-spacing:0.05em;">MIGRATIONS-SCHRITTE</p>
+            <ol style="font-size:0.8rem; color:#9A9690; line-height:2; padding-left:1.25rem;">
+              <li>WordPress auf Ionos installieren</li>
+              <li>Leeres Custom Theme aus HTML-Dateien aufbauen</li>
+              <li>header.php / footer.php aus Nav + Footer extrahieren</li>
+              <li>front-page.php, page-produkte.php, page-service.php</li>
+              <li>Portfolio als Custom Post Type + Archiv-Template</li>
+              <li>CF7-Formulare einsetzen (Field-Names sind identisch)</li>
+              <li>Logo + echte Fotos des Kunden einfügen</li>
+              <li>Impressum + Datenschutz Seiten anlegen</li>
+            </ol>
+          </div>
+
+          <div style="border: 1px solid #363330; border-radius: 2px; padding: 1.5rem;">
+            <p class="font-display text-mp-accent mb-3" style="font-size:1.25rem; letter-spacing:0.05em;">FOTOS ERSETZEN</p>
+            <p style="font-size:0.8rem; color:#9A9690; line-height:1.8;">
+              Alle <code>&lt;div class="photo"&gt;</code> durch
+              <code>&lt;img src="..." alt="Beschreibung" loading="lazy" style="width:100%;height:100%;object-fit:cover;"&gt;</code>
+              ersetzen. Format: WebP, max 1920px Breite. Client liefert Fotos per Ionos Drive oder WeTransfer.
+            </p>
+          </div>
+
+          <div style="border: 1px solid #363330; border-radius: 2px; padding: 1.5rem;">
+            <p class="font-display text-mp-accent mb-3" style="font-size:1.25rem; letter-spacing:0.05em;">PLATZHALTER</p>
+            <ul style="font-size:0.8rem; color:#9A9690; line-height:2; list-style:none; padding:0;">
+              <li>→ <code>+49 (0) 2734 000 000</code> → echte Nummer</li>
+              <li>→ <code>info@monpro-freudenberg.de</code> → echte E-Mail</li>
+              <li>→ <code>Musterstraße 1</code> → echte Adresse</li>
+              <li>→ Logo einfügen (SVG bevorzugt)</li>
+              <li>→ Impressum + Datenschutz: Anwalt / Generator</li>
+              <li>→ Google Maps Embed (optional, Kontakt-Sektion)</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div style="margin-top:2.5rem; padding: 1.5rem; background:#2C2926; border-radius:2px; max-width:640px;">
+          <p class="eyebrow mb-3">Budget-Überblick (600 €)</p>
+          <table style="font-size:0.8rem; color:#9A9690; width:100%; border-collapse:collapse;">
+            <tr style="border-bottom:1px solid #363330;">
+              <td style="padding:0.5rem 0;">Design System + 3 HTML-Seiten</td>
+              <td style="padding:0.5rem 0; text-align:right; color:#F3F0EB;">fertig ✓</td>
+            </tr>
+            <tr style="border-bottom:1px solid #363330;">
+              <td style="padding:0.5rem 0;">WordPress Theme Migration</td>
+              <td style="padding:0.5rem 0; text-align:right;">~8–10 Std.</td>
+            </tr>
+            <tr style="border-bottom:1px solid #363330;">
+              <td style="padding:0.5rem 0;">Ionos Hosting (Webhosting Plus)</td>
+              <td style="padding:0.5rem 0; text-align:right;">~4 €/Monat</td>
+            </tr>
+            <tr style="border-bottom:1px solid #363330;">
+              <td style="padding:0.5rem 0;">Domains (.de)</td>
+              <td style="padding:0.5rem 0; text-align:right;">~1 €/Monat</td>
+            </tr>
+            <tr>
+              <td style="padding:0.5rem 0;">Plugins (alle kostenlos)</td>
+              <td style="padding:0.5rem 0; text-align:right; color:#C8903A;">0 €</td>
+            </tr>
+          </table>
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monpro Freudenberg — Terrassenüberdachungen aus Aluminium</title>
+  <meta name="description" content="Monpro Freudenberg: Hochwertige Terrassenüberdachungen, Lamellendächer und Carports aus Aluminium. Kostenlose Beratung vor Ort.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'mp-deep':   '#1F1D1A',
+            'mp-mid':    '#2C2926',
+            'mp-light':  '#F3F0EB',
+            'mp-white':  '#F8F5F0',
+            'mp-accent': '#C8903A',
+            'mp-acc-h':  '#B07528',
+            'mp-text':   '#F3F0EB',
+            'mp-muted':  '#9A9690',
+            'mp-dim':    '#6B6660',
+            'mp-border': '#363330',
+            'mp-brd-l':  '#DAD6CF',
+          },
+          fontFamily: {
+            display: ['Bebas Neue', 'sans-serif'],
+            body:    ['Inter', 'sans-serif'],
+          },
+          letterSpacing: {
+            wide:  '0.08em',
+            wider: '0.15em',
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #1F1D1A;
+      color: #F3F0EB;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Photo placeholder — swap with <img> when client provides photos */
+    .photo {
+      background: linear-gradient(160deg, #2C2926 0%, #1A1815 60%, #242120 100%);
+      position: relative;
+    }
+    .photo::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        -55deg,
+        transparent,
+        transparent 12px,
+        rgba(200,144,58,0.03) 12px,
+        rgba(200,144,58,0.03) 13px
+      );
+      pointer-events: none;
+    }
+
+    /* Eyebrow label */
+    .eyebrow {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #C8903A;
+    }
+
+    /* Navigation links */
+    .nav-link {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: #9A9690;
+      transition: color 140ms ease;
+    }
+    .nav-link:hover { color: #F3F0EB; }
+
+    /* Buttons */
+    .btn-primary {
+      display: inline-block;
+      background: #C8903A;
+      color: #1F1D1A;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.875rem 2rem;
+      border-radius: 2px;
+      transition: background 140ms ease, transform 140ms ease;
+      text-decoration: none;
+    }
+    .btn-primary:hover {
+      background: #B07528;
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #9A9690;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color 140ms ease, gap 140ms ease;
+    }
+    .btn-ghost:hover { color: #F3F0EB; gap: 0.75rem; }
+    .btn-ghost .arrow { color: #C8903A; }
+
+    /* Portfolio hover */
+    .ref-card .ref-overlay {
+      opacity: 0;
+      transition: opacity 200ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .ref-card .ref-label {
+      transform: translateY(10px);
+      transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .ref-card:hover .ref-overlay { opacity: 1; }
+    .ref-card:hover .ref-label { transform: translateY(0); }
+
+    /* Form */
+    .field { display: flex; flex-direction: column; gap: 0.375rem; }
+    .field label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #9A9690;
+    }
+    .field input,
+    .field textarea {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9375rem;
+      background: #F8F5F0;
+      border: 1px solid #DAD6CF;
+      border-radius: 2px;
+      padding: 0.75rem 1rem;
+      color: #1F1D1A;
+      outline: none;
+      transition: border-color 140ms ease;
+      resize: none;
+    }
+    .field input:focus,
+    .field textarea:focus { border-color: #C8903A; }
+    .field input::placeholder,
+    .field textarea::placeholder { color: #B0ABA4; }
+
+    /* Stat block */
+    .stat { border-top: 1px solid #363330; padding-top: 1.5rem; }
+
+    /* Service step */
+    .step { border-top: 2px solid #C8903A; padding: 2rem 1.5rem 2rem 0; position: relative; }
+    .step-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 6rem;
+      color: rgba(107,102,96,0.12);
+      position: absolute;
+      bottom: 0.25rem;
+      right: 0;
+      line-height: 1;
+      user-select: none;
+    }
+
+    @media (max-width: 768px) {
+      .step-num { font-size: 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAV ─────────────────────────────────────────────────────────────── -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-mp-deep border-b border-mp-border">
+    <div class="max-w-[1200px] mx-auto px-6 flex items-center justify-between h-[60px]">
+      <a href="index.html" class="font-display text-[1.4rem] tracking-[0.12em] text-mp-text">MONPRO</a>
+
+      <!-- Desktop links -->
+      <div class="hidden md:flex items-center gap-8">
+        <a href="produkte.html" class="nav-link">Produkte</a>
+        <a href="service.html" class="nav-link">Service</a>
+        <a href="#referenzen" class="nav-link">Referenzen</a>
+        <a href="#kontakt" class="nav-link">Kontakt</a>
+      </div>
+
+      <a href="#kontakt" class="hidden md:block btn-primary" style="padding:0.625rem 1.5rem; font-size:0.75rem;">Angebot anfragen</a>
+
+      <!-- Mobile toggle -->
+      <button id="nav-toggle" class="md:hidden flex flex-col gap-[5px] p-2" aria-label="Menü">
+        <span class="w-5 h-[1.5px] bg-mp-text block"></span>
+        <span class="w-5 h-[1.5px] bg-mp-text block"></span>
+        <span class="w-3 h-[1.5px] bg-mp-accent block"></span>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="nav-menu" class="hidden md:hidden bg-mp-mid border-t border-mp-border px-6 py-6 flex flex-col gap-5">
+      <a href="produkte.html" class="nav-link text-mp-text">Produkte</a>
+      <a href="service.html" class="nav-link text-mp-text">Service</a>
+      <a href="#referenzen" class="nav-link text-mp-text">Referenzen</a>
+      <a href="#kontakt" class="nav-link text-mp-text">Kontakt</a>
+      <a href="#kontakt" class="btn-primary mt-2 text-center">Angebot anfragen</a>
+    </div>
+  </nav>
+
+
+  <!-- ─── HERO ──────────────────────────────────────────────────────────────── -->
+  <section class="relative min-h-screen flex items-end pt-[60px]">
+    <div class="photo absolute inset-0"></div>
+    <!-- subtle vignette -->
+    <div class="absolute inset-0 bg-gradient-to-t from-mp-deep via-mp-deep/40 to-transparent"></div>
+
+    <div class="relative w-full max-w-[1200px] mx-auto px-6 pb-20 md:pb-28">
+      <span class="eyebrow mb-6 block">Freudenberg · Aluminium · Präzision</span>
+      <h1 class="font-display text-mp-text leading-none mb-8"
+          style="font-size: clamp(3.25rem, 11vw, 8.75rem); letter-spacing: -0.01em;">
+        TERRASSEN-<br>ÜBER&shy;DACHUNGEN<br><span class="text-mp-accent">AUS ALUMINIUM.</span>
+      </h1>
+      <div class="flex flex-wrap items-center gap-4 md:gap-8">
+        <a href="#kontakt" class="btn-primary">Angebot anfragen</a>
+        <a href="#produkte" class="btn-ghost">Unsere Produkte <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── VALUE STRIP ───────────────────────────────────────────────────────── -->
+  <section class="bg-mp-light py-12 md:py-16">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-0 md:divide-x divide-mp-brd-l">
+
+        <div class="md:pr-10">
+          <div class="w-8 h-[2px] bg-mp-accent mb-4"></div>
+          <p class="font-semibold text-mp-deep text-base mb-1.5">Kostenlose Beratung</p>
+          <p class="text-mp-dim text-sm leading-relaxed">Wir kommen zu Ihnen vor Ort und besprechen gemeinsam alle Möglichkeiten.</p>
+        </div>
+
+        <div class="md:px-10">
+          <div class="w-8 h-[2px] bg-mp-accent mb-4"></div>
+          <p class="font-semibold text-mp-deep text-base mb-1.5">Maßgefertigte Lösungen</p>
+          <p class="text-mp-dim text-sm leading-relaxed">Jede Anlage entsteht exakt nach den Maßen Ihres Grundstücks und Ihrer Wünsche.</p>
+        </div>
+
+        <div class="md:pl-10">
+          <div class="w-8 h-[2px] bg-mp-accent mb-4"></div>
+          <p class="font-semibold text-mp-deep text-base mb-1.5">Regionaler Handwerksbetrieb</p>
+          <p class="text-mp-dim text-sm leading-relaxed">Planung, Fertigung und Montage — alles aus einer Hand, aus Freudenberg.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── PRODUCTS PREVIEW ─────────────────────────────────────────────────── -->
+  <section id="produkte" class="pt-24 pb-0">
+    <div class="max-w-[1200px] mx-auto px-6 mb-14 md:mb-20">
+      <span class="eyebrow mb-4">Unsere Leistungen</span>
+      <h2 class="font-display text-mp-text" style="font-size: clamp(2.25rem, 5vw, 4rem);">WAS WIR BAUEN</h2>
+    </div>
+
+    <!-- Row 1: photo left / text right -->
+    <div class="grid grid-cols-1 lg:grid-cols-12">
+      <div class="photo aspect-[4/3] lg:aspect-auto lg:col-span-7"></div>
+      <div class="lg:col-span-5 bg-mp-mid flex flex-col justify-center px-8 md:px-12 py-14 md:py-20">
+        <span class="font-display text-[5.5rem] leading-none text-mp-accent/10 mb-2 block select-none">01</span>
+        <h3 class="font-display text-mp-text mb-5" style="font-size: clamp(1.75rem, 3vw, 2.5rem);">TERRASSEN&shy;ÜBERDACHUNG</h3>
+        <p class="text-mp-muted text-sm leading-relaxed mb-8 max-w-sm">
+          Klassische Aluminium-Konstruktionen für Terrassen jeder Größe — robust, wartungsarm, individuell geplant. Ausführung als Stegplatten-, Glas- oder Lichtplattenüberdachung.
+        </p>
+        <a href="produkte.html" class="btn-ghost self-start">Mehr erfahren <span class="arrow">→</span></a>
+      </div>
+    </div>
+
+    <!-- Row 2: text left / photo right -->
+    <div class="grid grid-cols-1 lg:grid-cols-12">
+      <div class="lg:col-span-5 bg-mp-deep flex flex-col justify-center px-8 md:px-12 py-14 md:py-20 order-2 lg:order-1 border-t border-mp-border">
+        <span class="font-display text-[5.5rem] leading-none text-mp-accent/10 mb-2 block select-none">02</span>
+        <h3 class="font-display text-mp-text mb-5" style="font-size: clamp(1.75rem, 3vw, 2.5rem);">LAMELLENDACH</h3>
+        <p class="text-mp-muted text-sm leading-relaxed mb-8 max-w-sm">
+          Motorisierte Aluminium-Lamellen für volle Kontrolle über Licht, Luft und Wetter. Per Fernbedienung steuerbar, optional mit LED-Beleuchtung und integrierten Regenrinnen.
+        </p>
+        <a href="produkte.html" class="btn-ghost self-start">Mehr erfahren <span class="arrow">→</span></a>
+      </div>
+      <div class="photo aspect-[4/3] lg:aspect-auto lg:col-span-7 order-1 lg:order-2"></div>
+    </div>
+  </section>
+
+
+  <!-- ─── PORTFOLIO ─────────────────────────────────────────────────────────── -->
+  <section id="referenzen" class="py-24 bg-mp-mid">
+    <div class="max-w-[1200px] mx-auto px-6">
+
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12 md:mb-16">
+        <div>
+          <span class="eyebrow mb-4">Projekte</span>
+          <h2 class="font-display text-mp-text" style="font-size: clamp(2.25rem, 5vw, 4rem);">UNSERE<br>REFERENZEN</h2>
+        </div>
+        <a href="#kontakt" class="btn-ghost shrink-0">Anfrage stellen <span class="arrow">→</span></a>
+      </div>
+
+      <!-- Asymmetric grid -->
+      <div class="grid grid-cols-12 gap-2">
+
+        <div class="ref-card col-span-12 md:col-span-8 relative overflow-hidden cursor-pointer"
+             style="aspect-ratio: 16/9;">
+          <div class="photo w-full h-full"></div>
+          <div class="ref-overlay absolute inset-0 bg-mp-deep/75 flex flex-col justify-end p-6 md:p-8">
+            <div class="ref-label">
+              <span class="eyebrow mb-1">Freudenberg · 2024</span>
+              <p class="font-display text-mp-text" style="font-size: clamp(1.25rem, 2.5vw, 1.75rem);">TERRASSENÜBERDACHUNG GLASDACH</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="ref-card col-span-12 md:col-span-4 relative overflow-hidden cursor-pointer"
+             style="aspect-ratio: 4/3;">
+          <div class="photo w-full h-full"></div>
+          <div class="ref-overlay absolute inset-0 bg-mp-deep/75 flex flex-col justify-end p-5 md:p-6">
+            <div class="ref-label">
+              <span class="eyebrow mb-1">Siegen · 2024</span>
+              <p class="font-display text-mp-text text-xl">LAMELLENDACH</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="ref-card col-span-6 md:col-span-4 relative overflow-hidden cursor-pointer"
+             style="aspect-ratio: 4/3;">
+          <div class="photo w-full h-full"></div>
+          <div class="ref-overlay absolute inset-0 bg-mp-deep/75 flex flex-col justify-end p-5">
+            <div class="ref-label">
+              <span class="eyebrow mb-1">Netphen · 2023</span>
+              <p class="font-display text-mp-text text-lg">CARPORT</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="ref-card col-span-6 md:col-span-4 relative overflow-hidden cursor-pointer"
+             style="aspect-ratio: 4/3;">
+          <div class="photo w-full h-full"></div>
+          <div class="ref-overlay absolute inset-0 bg-mp-deep/75 flex flex-col justify-end p-5">
+            <div class="ref-label">
+              <span class="eyebrow mb-1">Kreuztal · 2023</span>
+              <p class="font-display text-mp-text text-lg">ÜBERDACHUNG</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="ref-card col-span-12 md:col-span-4 relative overflow-hidden cursor-pointer"
+             style="aspect-ratio: 16/9;">
+          <div class="photo w-full h-full"></div>
+          <div class="ref-overlay absolute inset-0 bg-mp-deep/75 flex flex-col justify-end p-5 md:p-6">
+            <div class="ref-label">
+              <span class="eyebrow mb-1">Freudenberg · 2023</span>
+              <p class="font-display text-mp-text text-xl">LAMELLENDACH XL</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── ÜBER UNS ──────────────────────────────────────────────────────────── -->
+  <section class="py-24 bg-mp-deep">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+        <div>
+          <span class="eyebrow mb-5">Über uns</span>
+          <h2 class="font-display text-mp-text mb-8" style="font-size: clamp(2.25rem, 5vw, 4rem); line-height: 1.05;">
+            HANDWERK<br>MIT ANSPRUCH.
+          </h2>
+          <p class="text-mp-muted text-sm leading-relaxed max-w-[420px]">
+            Monpro Freudenberg steht für präzise Metallbauarbeiten und individuelle Lösungen rund um Terrassenüberdachungen. Wir planen, fertigen und montieren — regional verwurzelt, handwerklich überzeugend.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-3 gap-6 md:gap-10">
+          <div class="stat">
+            <p class="font-display text-mp-accent mb-2" style="font-size: clamp(2.5rem, 4vw, 3.5rem); line-height: 1;">12+</p>
+            <p class="text-mp-muted text-xs leading-snug">Jahre Erfahrung</p>
+          </div>
+          <div class="stat">
+            <p class="font-display text-mp-accent mb-2" style="font-size: clamp(2.5rem, 4vw, 3.5rem); line-height: 1;">200+</p>
+            <p class="text-mp-muted text-xs leading-snug">Abge&shy;schlossene Projekte</p>
+          </div>
+          <div class="stat">
+            <p class="font-display text-mp-accent mb-2" style="font-size: clamp(2.5rem, 4vw, 3.5rem); line-height: 1;">10J</p>
+            <p class="text-mp-muted text-xs leading-snug">Garantie auf Material</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── SERVICE STEPS ─────────────────────────────────────────────────────── -->
+  <section class="py-24 bg-mp-light">
+    <div class="max-w-[1200px] mx-auto px-6">
+
+      <div class="mb-16 md:mb-20">
+        <span class="eyebrow mb-5">So läuft es ab</span>
+        <h2 class="font-display text-mp-deep" style="font-size: clamp(2.25rem, 5vw, 4rem); line-height: 1.05;">
+          VOM GESPRÄCH<br>ZUR TERRASSE.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0">
+
+        <div class="step pr-6">
+          <h3 class="font-display text-mp-deep mb-3" style="font-size: 1.625rem;">BERATUNG</h3>
+          <p class="text-mp-dim text-sm leading-relaxed pr-4">
+            Wir kommen kostenlos zu Ihnen. Gemeinsam besprechen wir Wünsche, messen auf und klären alle Optionen.
+          </p>
+          <span class="step-num">01</span>
+        </div>
+
+        <div class="step pr-6">
+          <h3 class="font-display text-mp-deep mb-3" style="font-size: 1.625rem;">PLANUNG</h3>
+          <p class="text-mp-dim text-sm leading-relaxed pr-4">
+            Sie erhalten ein detailliertes Angebot mit Zeichnung. Keine versteckten Kosten, keine Überraschungen.
+          </p>
+          <span class="step-num">02</span>
+        </div>
+
+        <div class="step pr-6">
+          <h3 class="font-display text-mp-deep mb-3" style="font-size: 1.625rem;">MONTAGE</h3>
+          <p class="text-mp-dim text-sm leading-relaxed pr-4">
+            Unser Team montiert fachgerecht und sauber. Meist ist die Anlage innerhalb von 1–2 Tagen fertig.
+          </p>
+          <span class="step-num">03</span>
+        </div>
+
+        <div class="step pr-6">
+          <h3 class="font-display text-mp-deep mb-3" style="font-size: 1.625rem;">ABNAHME</h3>
+          <p class="text-mp-dim text-sm leading-relaxed pr-4">
+            Gemeinsame Abnahme und Einweisung. Danach: 10 Jahre Garantie auf Material und Verarbeitung.
+          </p>
+          <span class="step-num">04</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── KONTAKT ───────────────────────────────────────────────────────────── -->
+  <section id="kontakt" class="py-24 bg-mp-deep">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 xl:gap-24">
+
+        <!-- Left -->
+        <div>
+          <span class="eyebrow mb-5">Kontakt</span>
+          <h2 class="font-display text-mp-text mb-8" style="font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.05;">
+            BEREIT FÜR<br>IHR PROJEKT?
+          </h2>
+          <p class="text-mp-muted text-sm leading-relaxed mb-12 max-w-[360px]">
+            Schreiben Sie uns oder rufen Sie direkt an. Kostenlose Beratung vor Ort — unverbindliches Angebot inklusive.
+          </p>
+
+          <div class="space-y-8">
+            <div>
+              <p class="text-mp-muted text-[0.65rem] uppercase tracking-wider mb-2">Telefon</p>
+              <a href="tel:+4902734000000" class="text-mp-accent font-semibold text-lg hover:text-mp-acc-h transition-colors duration-150">
+                +49 (0) 2734 000 000
+              </a>
+            </div>
+            <div>
+              <p class="text-mp-muted text-[0.65rem] uppercase tracking-wider mb-2">E-Mail</p>
+              <a href="mailto:info@monpro-freudenberg.de" class="text-mp-text text-sm hover:text-mp-accent transition-colors duration-150">
+                info@monpro-freudenberg.de
+              </a>
+            </div>
+            <div>
+              <p class="text-mp-muted text-[0.65rem] uppercase tracking-wider mb-2">Adresse</p>
+              <p class="text-mp-muted text-sm leading-relaxed">Musterstraße 1<br>57258 Freudenberg</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <form class="flex flex-col gap-5" name="kontakt" method="POST" action="#">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div class="field">
+              <label for="name">Name *</label>
+              <input type="text" id="name" name="name" required placeholder="Max Mustermann">
+            </div>
+            <div class="field">
+              <label for="tel">Telefon</label>
+              <input type="tel" id="tel" name="tel" placeholder="+49 ...">
+            </div>
+          </div>
+          <div class="field">
+            <label for="email">E-Mail *</label>
+            <input type="email" id="email" name="email" required placeholder="max@beispiel.de">
+          </div>
+          <div class="field">
+            <label for="nachricht">Nachricht</label>
+            <textarea id="nachricht" name="nachricht" rows="5"
+              placeholder="Beschreiben Sie kurz Ihr Vorhaben — Größe, gewünschtes Produkt, Zeitrahmen ..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary text-center mt-2">Anfrage absenden</button>
+          <p class="text-mp-muted text-xs leading-relaxed">
+            * Pflichtfelder. Ihre Daten werden nicht an Dritte weitergegeben.
+          </p>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── FOOTER ────────────────────────────────────────────────────────────── -->
+  <footer class="border-t border-mp-border bg-mp-deep py-7">
+    <div class="max-w-[1200px] mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-5">
+      <a href="index.html" class="font-display text-[1.3rem] tracking-[0.12em] text-mp-text">MONPRO</a>
+      <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+        <a href="produkte.html" class="nav-link text-mp-muted text-[0.7rem]">Produkte</a>
+        <a href="service.html"  class="nav-link text-mp-muted text-[0.7rem]">Service</a>
+        <a href="#referenzen"   class="nav-link text-mp-muted text-[0.7rem]">Referenzen</a>
+        <a href="#kontakt"      class="nav-link text-mp-muted text-[0.7rem]">Kontakt</a>
+        <a href="impressum.html" class="nav-link text-mp-muted text-[0.7rem]">Impressum</a>
+        <a href="datenschutz.html" class="nav-link text-mp-muted text-[0.7rem]">Datenschutz</a>
+      </nav>
+      <div class="flex flex-col items-center md:items-end gap-2">
+        <div class="flex items-center gap-4">
+          <a href="#" aria-label="Instagram" class="text-mp-muted hover:text-mp-accent transition-colors duration-150">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook" class="text-mp-muted hover:text-mp-accent transition-colors duration-150">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube" class="text-mp-muted hover:text-mp-accent transition-colors duration-150">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.96 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58a2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>
+          </a>
+        </div>
+        <p class="text-mp-muted text-[0.7rem]">© 2025 Monpro Freudenberg</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    // Mobile nav
+    document.getElementById('nav-toggle').addEventListener('click', function () {
+      document.getElementById('nav-menu').classList.toggle('hidden');
+    });
+  </script>
+
+</body>
+</html>

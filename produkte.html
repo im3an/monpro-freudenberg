@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produkte — Monpro Freudenberg</title>
+  <meta name="description" content="Terrassenüberdachungen, Lamellendächer, Glasdächer und Carports aus Aluminium von Monpro Freudenberg.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'mp-deep':   '#1F1D1A',
+            'mp-mid':    '#2C2926',
+            'mp-light':  '#F3F0EB',
+            'mp-white':  '#F8F5F0',
+            'mp-accent': '#C8903A',
+            'mp-acc-h':  '#B07528',
+            'mp-text':   '#F3F0EB',
+            'mp-muted':  '#9A9690',
+            'mp-dim':    '#6B6660',
+            'mp-border': '#363330',
+            'mp-brd-l':  '#DAD6CF',
+          },
+          fontFamily: {
+            display: ['Bebas Neue', 'sans-serif'],
+            body:    ['Inter', 'sans-serif'],
+          },
+          letterSpacing: {
+            wide:  '0.08em',
+            wider: '0.15em',
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #1F1D1A;
+      color: #F3F0EB;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .photo {
+      background: linear-gradient(160deg, #2C2926 0%, #1A1815 60%, #242120 100%);
+      position: relative;
+    }
+    .photo::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        -55deg,
+        transparent,
+        transparent 12px,
+        rgba(200,144,58,0.03) 12px,
+        rgba(200,144,58,0.03) 13px
+      );
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #C8903A;
+    }
+
+    .nav-link {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: #9A9690;
+      transition: color 140ms ease;
+    }
+    .nav-link:hover { color: #F3F0EB; }
+
+    .btn-primary {
+      display: inline-block;
+      background: #C8903A;
+      color: #1F1D1A;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.875rem 2rem;
+      border-radius: 2px;
+      transition: background 140ms ease, transform 140ms ease;
+      text-decoration: none;
+    }
+    .btn-primary:hover { background: #B07528; transform: translateY(-1px); }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #9A9690;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color 140ms ease, gap 140ms ease;
+    }
+    .btn-ghost:hover { color: #F3F0EB; gap: 0.75rem; }
+    .btn-ghost .arrow { color: #C8903A; }
+
+    .field { display: flex; flex-direction: column; gap: 0.375rem; }
+    .field label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #9A9690;
+    }
+    .field input, .field textarea {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9375rem;
+      background: #F8F5F0;
+      border: 1px solid #DAD6CF;
+      border-radius: 2px;
+      padding: 0.75rem 1rem;
+      color: #1F1D1A;
+      outline: none;
+      transition: border-color 140ms ease;
+      resize: none;
+    }
+    .field input:focus, .field textarea:focus { border-color: #C8903A; }
+    .field input::placeholder, .field textarea::placeholder { color: #B0ABA4; }
+
+    /* Product row feature list */
+    .feature-list { list-style: none; padding: 0; }
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.875rem;
+      color: #9A9690;
+      line-height: 1.6;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #363330;
+    }
+    .feature-list li::before {
+      content: '—';
+      color: #C8903A;
+      flex-shrink: 0;
+      margin-top: 0.05em;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAV ────────────────────────────────────────────────────────────── -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-mp-deep border-b border-mp-border">
+    <div class="max-w-[1200px] mx-auto px-6 flex items-center justify-between h-[60px]">
+      <a href="index.html" class="font-display text-[1.4rem] tracking-[0.12em] text-mp-text">MONPRO</a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="produkte.html" class="nav-link text-mp-text">Produkte</a>
+        <a href="service.html"  class="nav-link">Service</a>
+        <a href="index.html#referenzen" class="nav-link">Referenzen</a>
+        <a href="#kontakt"      class="nav-link">Kontakt</a>
+      </div>
+      <a href="#kontakt" class="hidden md:block btn-primary" style="padding:0.625rem 1.5rem; font-size:0.75rem;">Angebot anfragen</a>
+      <button id="nav-toggle" class="md:hidden flex flex-col gap-[5px] p-2" aria-label="Menü">
+        <span class="w-5 h-[1.5px] bg-mp-text block"></span>
+        <span class="w-5 h-[1.5px] bg-mp-text block"></span>
+        <span class="w-3 h-[1.5px] bg-mp-accent block"></span>
+      </button>
+    </div>
+    <div id="nav-menu" class="hidden md:hidden bg-mp-mid border-t border-mp-border px-6 py-6 flex flex-col gap-5">
+      <a href="produkte.html" class="nav-link text-mp-text">Produkte</a>
+      <a href="service.html"  class="nav-link text-mp-text">Service</a>
+      <a href="index.html#referenzen" class="nav-link text-mp-text">Referenzen</a>
+      <a href="#kontakt"      class="nav-link text-mp-text">Kontakt</a>
+      <a href="#kontakt" class="btn-primary mt-2 text-center">Angebot anfragen</a>
+    </div>
+  </nav>
+
+
+  <!-- ─── PAGE HEADER ─────────────────────────────────────────────────────── -->
+  <header class="pt-[60px] bg-mp-deep border-b border-mp-border">
+    <div class="max-w-[1200px] mx-auto px-6 py-16 md:py-24">
+      <span class="eyebrow mb-5">Leistungen</span>
+      <h1 class="font-display text-mp-text" style="font-size: clamp(3rem, 8vw, 6.5rem); line-height: 1; letter-spacing: -0.01em;">
+        UNSERE<br>PRODUKTE
+      </h1>
+    </div>
+  </header>
+
+
+  <!-- ─── PRODUCT 01: TERRASSENÜBERDACHUNG ─────────────────────────────────── -->
+  <section class="border-b border-mp-border">
+    <div class="grid grid-cols-1 lg:grid-cols-12">
+
+      <div class="photo lg:col-span-7 order-1" style="min-height: 360px; aspect-ratio: 16/10;"></div>
+
+      <div class="lg:col-span-5 flex flex-col justify-center px-8 md:px-12 py-14 md:py-20 bg-mp-mid order-2">
+        <span class="eyebrow mb-5">Produkt 01</span>
+        <h2 class="font-display text-mp-text mb-6" style="font-size: clamp(1.75rem, 3.5vw, 2.75rem); line-height: 1.1;">
+          TERRASSEN&shy;ÜBERDACHUNG
+        </h2>
+        <p class="text-mp-muted text-sm leading-relaxed mb-8">
+          Die klassische Aluminiumüberdachung für Ihre Terrasse — langlebig, wartungsarm und individuell auf Ihr Grundstück abgestimmt. Wir planen und montieren jede Größe, auch für unregelmäßige Grundrisse.
+        </p>
+        <ul class="feature-list mb-10">
+          <li>Pulverbeschichtetes Aluminium, korrosionsbeständig</li>
+          <li>Ausführung mit Stegplatten, Glas oder Lichtplatten</li>
+          <li>Selbstreinigende Regenrinne integriert</li>
+          <li>Maßanfertigung ab 2 × 2 m bis über 10 × 6 m</li>
+          <li>Optionale Beleuchtung, Seitenwände und Rollos</li>
+        </ul>
+        <a href="#kontakt" class="btn-primary self-start">Angebot anfragen</a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ─── PRODUCT 02: LAMELLENDACH ─────────────────────────────────────────── -->
+  <section class="border-b border-mp-border">
+    <div class="grid grid-cols-1 lg:grid-cols-12">
+
+      <div class="lg:col-span-5 flex flex-col justify-center px-8 md:px-12 py-14 md:py-20 bg-mp-deep order-2 lg:order-1">
+        <span class="eyebrow mb-5">Produkt 02</span>
+        <h2 class="font-display text-mp-text mb-6" style="font-size: clamp(1.75rem, 3.5vw, 2.75rem); line-height: 1.1;">
+          LAMELLENDACH
+        </h2>
+        <p class="text-mp-muted text-sm leading-relaxed mb-8">
+          Motorisierte Aluminium-Lamellen geben Ihnen die volle Kontrolle über Licht, Luft und Wetter. Ein Tastendruck öffnet oder schließt das Dach stufenlos — für Sonnenschutz und Regenschutz gleichermaßen.
+        </p>
+        <ul class="feature-list mb-10">
+          <li>Elektrisch drehbare Aluminium-Lamellen</li>
+          <li>Steuerung per Fernbedienung oder App</li>
+          <li>Optionaler Windwächter und Regenautomatik</li>
+          <li>Integrierte LED-Beleuchtung in den Lamellen</li>
+          <li>Geschlossener Wasserablauf, wartungsarm</li>
+        </ul>
+        <a href="#kontakt" class="btn-primary self-start">Angebot anfragen</a>
+      </div>
+
+      <div class="photo lg:col-span-7 order-1 lg:order-2" style="min-height: 360px; aspect-ratio: 16/10;"></div>
+
+    </div>
+  </section>
+
+
+  <!-- ─── PRODUCT 03: GLASDACH ──────────────────────────────────────────────── -->
+  <section class="border-b border-mp-border">
+    <div class="grid grid-cols-1 lg:grid-cols-12">
+
+      <div class="photo lg:col-span-7 order-1" style="min-height: 360px; aspect-ratio: 16/10;"></div>
+
+      <div class="lg:col-span-5 flex flex-col justify-center px-8 md:px-12 py-14 md:py-20 bg-mp-mid order-2">
+        <span class="eyebrow mb-5">Produkt 03</span>
+        <h2 class="font-display text-mp-text mb-6" style="font-size: clamp(1.75rem, 3.5vw, 2.75rem); line-height: 1.1;">
+          GLASDACH
+        </h2>
+        <p class="text-mp-muted text-sm leading-relaxed mb-8">
+          Maximale Helligkeit bei optimalem Wetterschutz. Unser Glasdach aus VSG-Sicherheitsglas und Aluminium-Profilen verbindet technische Präzision mit klarer Optik — für Terrassen, die das ganze Jahr nutzbar sind.
+        </p>
+        <ul class="feature-list mb-10">
+          <li>VSG-Sicherheitsglas nach DIN 18008</li>
+          <li>Schlanke Aluminium-Tragprofile</li>
+          <li>Wärmedämmverglasung optional</li>
+          <li>Selbstreinigend beschichtetes Glas möglich</li>
+          <li>Kombinierbar mit Schiebewänden</li>
+        </ul>
+        <a href="#kontakt" class="btn-primary self-start">Angebot anfragen</a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ─── PRODUCT 04: CARPORT ──────────────────────────────────────────────── -->
+  <section class="border-b border-mp-border">
+    <div class="grid grid-cols-1 lg:grid-cols-12">
+
+      <div class="lg:col-span-5 flex flex-col justify-center px-8 md:px-12 py-14 md:py-20 bg-mp-deep order-2 lg:order-1">
+        <span class="eyebrow mb-5">Produkt 04</span>
+        <h2 class="font-display text-mp-text mb-6" style="font-size: clamp(1.75rem, 3.5vw, 2.75rem); line-height: 1.1;">
+          CARPORT
+        </h2>
+        <p class="text-mp-muted text-sm leading-relaxed mb-8">
+          Maßgefertigte Aluminium-Carports, die zu Ihrem Haus passen — nicht umgekehrt. Wir planen freistehende oder angebaute Varianten, Einzel- oder Doppelcarports, in jeder Dachform.
+        </p>
+        <ul class="feature-list mb-10">
+          <li>Freistehendd oder hauswandseitig angebaut</li>
+          <li>Einzel- und Doppelcarport, auch XXL</li>
+          <li>Satteldach, Flachdach oder Pultdach</li>
+          <li>Auf Wunsch mit Abstellraum oder Seitenwand</li>
+          <li>Farblich abstimmbar auf Hausfarbe</li>
+        </ul>
+        <a href="#kontakt" class="btn-primary self-start">Angebot anfragen</a>
+      </div>
+
+      <div class="photo lg:col-span-7 order-1 lg:order-2" style="min-height: 360px; aspect-ratio: 16/10;"></div>
+
+    </div>
+  </section>
+
+
+  <!-- ─── KATALOG ──────────────────────────────────────────────────────────── -->
+  <section id="katalog" class="py-20 md:py-24 bg-mp-light">
+    <div class="max-w-[1200px] mx-auto px-6">
+
+      <!-- Header -->
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
+        <div>
+          <span class="eyebrow-dark mb-4">Vollständiger Katalog</span>
+          <h2 class="font-display text-mp-deep" style="font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1.05;">ALLE PRODUKTE</h2>
+        </div>
+        <p class="text-mp-dim text-sm shrink-0" id="kat-count">9 Produkte</p>
+      </div>
+
+      <!-- ── FILTER PANEL ── -->
+      <div class="kat-filter-panel">
+
+        <!-- Search -->
+        <div class="kat-search-wrap">
+          <svg class="kat-search-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="8.5" cy="8.5" r="5.5"/>
+            <path stroke-linecap="round" d="M14.5 14.5L18 18"/>
+          </svg>
+          <input
+            type="search"
+            id="kat-search"
+            class="kat-search-input"
+            placeholder="Produkt suchen …"
+            autocomplete="off"
+            aria-label="Katalog durchsuchen">
+          <button id="kat-search-clear" class="kat-search-clear" aria-label="Suche leeren" style="display:none;">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14">
+              <path stroke-linecap="round" d="M3 3l10 10M13 3L3 13"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Filter rows -->
+        <div class="kat-filter-rows">
+
+          <!-- Kategorie -->
+          <div class="kat-filter-row">
+            <span class="kat-filter-label">Kategorie</span>
+            <div class="kat-pills">
+              <button class="kat-pill kat-pill-cat active" data-cat="all">Alle</button>
+              <button class="kat-pill kat-pill-cat" data-cat="ueberdachung">Terrassenüberdachung</button>
+              <button class="kat-pill kat-pill-cat" data-cat="lamelle">Lamellendach</button>
+              <button class="kat-pill kat-pill-cat" data-cat="glas">Glasdach</button>
+              <button class="kat-pill kat-pill-cat" data-cat="carport">Carport</button>
+            </div>
+          </div>
+
+          <!-- Ausstattung (multi-select) -->
+          <div class="kat-filter-row">
+            <span class="kat-filter-label">Ausstattung</span>
+            <div class="kat-pills">
+              <button class="kat-pill kat-pill-feat" data-feat="motor">
+                <span class="pill-dot"></span>Motor
+              </button>
+              <button class="kat-pill kat-pill-feat" data-feat="led">
+                <span class="pill-dot"></span>LED-Beleuchtung
+              </button>
+              <button class="kat-pill kat-pill-feat" data-feat="app">
+                <span class="pill-dot"></span>App-Steuerung
+              </button>
+              <button class="kat-pill kat-pill-feat" data-feat="ganzjaehrig">
+                <span class="pill-dot"></span>Ganzjährig
+              </button>
+              <button class="kat-pill kat-pill-feat" data-feat="freistehend">
+                <span class="pill-dot"></span>Freistehend
+              </button>
+              <button class="kat-pill kat-pill-feat" data-feat="glas">
+                <span class="pill-dot"></span>Glas
+              </button>
+            </div>
+          </div>
+
+          <!-- Größe (single-select) -->
+          <div class="kat-filter-row">
+            <span class="kat-filter-label">Fläche</span>
+            <div class="kat-pills">
+              <button class="kat-pill kat-pill-size active" data-size="all">Alle Größen</button>
+              <button class="kat-pill kat-pill-size" data-size="kompakt">Bis 15 m²</button>
+              <button class="kat-pill kat-pill-size" data-size="mittel">15 – 40 m²</button>
+              <button class="kat-pill kat-pill-size" data-size="gross">Über 40 m²</button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Active filter chips + Reset -->
+        <div id="kat-active-bar" class="kat-active-bar" style="display:none;">
+          <div id="kat-chips" class="kat-chips"></div>
+          <button id="kat-reset" class="kat-reset-btn">Alle zurücksetzen</button>
+        </div>
+
+        <!-- No results -->
+        <div id="kat-empty" class="kat-empty" style="display:none;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32" style="color:#9A9690; margin:0 auto 0.75rem;">
+            <circle cx="11" cy="11" r="8"/><path stroke-linecap="round" d="M21 21l-4.35-4.35"/>
+          </svg>
+          <p>Keine Produkte gefunden.</p>
+          <button id="kat-empty-reset" class="kat-reset-btn" style="margin-top:0.75rem;">Filter zurücksetzen</button>
+        </div>
+
+      </div><!-- /filter panel -->
+
+      <!-- Catalog list -->
+      <div class="flex flex-col" id="kat-list">
+
+        <!-- ── 01 Terrassenüberdachung Klassik ──
+             data-cat: Produktkategorie
+             data-feat: Kommagetrennte Ausstattungsmerkmale
+             data-size: kompakt | mittel | gross
+             data-search: Volltext für die Suche (Lowercase) -->
+        <div class="kat-item"
+             data-cat="ueberdachung"
+             data-feat=""
+             data-size="kompakt"
+             data-search="terrassenüberdachung klassik stegplatten pultdach aluminium">
+          <div class="kat-img photo-light"></div>
+          <div class="kat-body">
+            <div class="kat-meta">
+              <span class="kat-cat">Terrassenüberdachung</span>
+              <h3 class="kat-name">TERRASSENÜBERDACHUNG KLASSIK</h3>
+              <p class="kat-desc">Pultdach-Konstruktion aus Aluminium mit Stegplatten-Eindeckung. Ideal für einfache, schnelle Überdachung zu einem attraktiven Preis-Leistungs-Verhältnis.</p>
+            </div>
+            <div class="kat-specs">
+              <span class="spec-tag">Stegplatten</span>
+              <span class="spec-tag">Ab 2 × 2 m</span>
+              <span class="spec-tag">Pultdach</span>
+              <span class="spec-tag">8 Farben</span>
+            </div>
+          </div>
+          <div class="kat-cta">
+            <a href="kontakt.html" class="btn-kat">Anfragen</a>
+          </div>
+        </div>
+
+        <!-- ── 02 Terrassenüberdachung Comfort ── -->
+        <div class="kat-item"
+             data-cat="ueberdachung"
+             data-feat="led"
+             data-size="mittel"
+             data-search="terrassenüberdachung comfort lichtplatten led seitenwand regenrinne">
+          <div class="kat-img photo-light"></div>
+          <div class="kat-body">
+            <div class="kat-meta">
+              <span class="kat-cat">Terrassenüberdachung</span>
+              <h3 class="kat-name">TERRASSENÜBERDACHUNG COMFORT</h3>
+              <p class="kat-desc">Erweiterte Ausstattung mit Lichtplatten-Eindeckung, integrierter Regenrinne und optionalen Seitenwänden. Für Terrassen bis 60 m².</p>
+            </div>
+            <div class="kat-specs">
+              <span class="spec-tag">Lichtplatten</span>
+              <span class="spec-tag">Bis 10 × 6 m</span>
+              <span class="spec-tag">Seitenwand optional</span>
+              <span class="spec-tag">LED optional</span>
+            </div>
+          </div>
+          <div class="kat-cta">
+            <a href="kontakt.html" class="btn-kat">Anfragen</a>
+          </div>
+        </div>
+
+        <!-- ── 03 Satteldach-Überdachung ── -->
+        <div class="kat-item"
+             data-cat="ueberdachung"
+             data-feat="freistehend,glas"
+             data-size="gross"
+             data-search="satteldach überdachung freistehend beidseitig gefälle glas stegplatten">
+          <div class="kat-img photo-light"></div>
+          <div class="kat-body">
+            <div class="kat-meta">
+              <span class="kat-cat">Terrassenüberdachung</span>
+              <h3 class="kat-name">SATTELDACH-ÜBERDACHUNG</h3>
+              <p class="kat-desc">Freistehende Konstruktion mit beidseitigem Gefälle — optisch harmonisch, wetterfest und besonders geeignet für größere oder freistehende Terrassen.</p>
+            </div>
+            <div class="kat-specs">
+              <span class="spec-tag">Freistehend</span>
+              <span class="spec-tag">Beidseitiges Gefälle</span>
+              <span class="spec-tag">Glas oder Stegplatten</span>
+              <span class="spec-tag">Individuell</span>
+            </div>
+          </div>
+          <div class="kat-cta">
+            <a href="kontakt.html" class="btn-kat">Anfragen</a>
+          </div>
+        </div>
+
+        <!-- ── 04 Lamellendach Standard ── -->
+        <div class="kat-item"
+             data-cat="lamelle"
+             data-feat="motor"
+             data-size="mittel"
+             data-search="lamellendach standard motor fernbedienung elektrisch regendicht aluminium">
+          <div class="kat-img photo-light"></div>
+          <div class="kat-body">
+            <div class="kat-meta">
+              <span class="kat-cat">Lamellendach</span>
+              <h3 class="kat-name">LAMELLENDACH STANDARD</h3>
+              <p class="kat-desc">Elektrisch drehbare Aluminium-Lamellen, per Fernbedienung stufenlos steuerbar. Vollständig regendicht bei geschlossener Stellung.</p>
+            </div>
+            <div class="kat-specs">
+              <span class="spec-tag">Elektromotor</span>
+              <span class="spec-tag">Fernbedienung</span>
+              <span class="spec-tag">Regendicht</span>
+              <span class="spec-tag">Ab 3 × 3 m</span>
+            </div>
+          </div>
+          <div class="kat-cta">
+            <a href="kontakt.html" class="btn-kat">Anfragen</a>
+          </div>
+        </div>
+
+        <!-- ── 05 Lamellendach Premium ── -->
+        <div class="kat-item"
+             data-cat="lamelle"
+             data-feat="motor,led,app,ganzjaehrig"
+             data-size="mittel"
+             data-search="lamellendach premium led app smartphone windwächter regenautomatik heizstrahler">
+          <div class="kat-img photo-light"></div>
+          <div class="kat-body">
+            <div class="kat-meta">
+              <span class="kat-cat">Lamellendach</span>
+              <h3 class="kat-name">LAMELLENDACH PREMIUM</h3>
+              <p class="kat-desc">Die komplette Ausstattung: LED-Beleuchtung in den Lamellen, App-Steuerung via Smartphone, Windwächter und optionaler Heizstrahler-Integration.</p>
+            </div>
+            <div class="kat-specs">
+              <span class="spec-tag">App-Steuerung</span>
+              <span class="spec-tag">LED integriert</span>
+              <span class="spec-tag">Windwächter</span>
+              <span class="spec-tag">Regenautomatik</span>
+            </div>
+          </div>
+          <div class="kat-cta">
+            <a href="kontakt.html" class="btn-kat">Anfragen</a>
+          </div>
+        </div>
+
+        <!-- ── 06 Glasdach Slim ── -->
+        <div class="kat-item"
+             data-cat="glas"
+             data-feat="glas"
+             data-size="mittel"
+             data-search="glasdach slim vsg sicherheitsglas din 18008 aluminium profil">
+          <div class="kat-img photo-light"></div>
+          <div class="kat-body">
+            <div class="kat-meta">
+              <span class="kat-cat">Glasdach</span>
+              <h3 class="kat-name">GLASDACH SLIM</h3>
+              <p class="kat-desc">Schlanke Aluminium-Profile mit VSG-Sicherheitsglas nach DIN 18008. Maximale Helligkeit, minimaler Profilquerschnitt — für klare, offene Architektur.</p>
+            </div>
+            <div class="kat-specs">
+              <span class="spec-tag">VSG-Sicherheitsglas</span>
+              <span class="spec-tag">Schlanke Profile</span>
+              <span class="spec-tag">DIN 18008</span>
+              <span class="spec-tag">Ab 10 mm Glas</span>
+            </div>
+          </div>
+          <div class="kat-cta">
+            <a href="kontakt.html" class="btn-kat">Anfragen</a>
+          </div>
+        </div>
+
+        <!-- ── 07 Glasdach Panorama ── -->
+        <div class="kat-item"
+             data-cat="glas"
+             data-feat="glas,ganzjaehrig"
+             data-size="gross"
+             data-search="glasdach panorama wärmedämmglas ganzjährig wintergarten schiebewand selbstreinigend">
+          <div class="kat-img photo-light"></div>
+          <div class="kat-body">
+            <div class="kat-meta">
+              <span class="kat-cat">Glasdach</span>
+              <h3 class="kat-name">GLASDACH PANORAMA</h3>
+              <p class="kat-desc">Wärmedämmverglasung für ganzjährige Nutzung. Kombinierbar mit Schiebe- oder Faltglaswänden für einen vollständig verglasten Wintergarten-Charakter.</p>
+            </div>
+            <div class="kat-specs">
+              <span class="spec-tag">Wärmedämmglas</span>
+              <span class="spec-tag">Ganzjährig</span>
+              <span class="spec-tag">Schiebewand optional</span>
+              <span class="spec-tag">Selbstreinigend</span>
+            </div>
+          </div>
+          <div class="kat-cta">
+            <a href="kontakt.html" class="btn-kat">Anfragen</a>
+          </div>
+        </div>
+
+        <!-- ── 08 Carport Einzel ── -->
+        <div class="kat-item"
+             data-cat="carport"
+             data-feat="freistehend"
+             data-size="kompakt"
+             data-search="carport einzel einzelstellplatz freistehend anbau pultdach satteldach flachdach">
+          <div class="kat-img photo-light"></div>
+          <div class="kat-body">
+            <div class="kat-meta">
+              <span class="kat-cat">Carport</span>
+              <h3 class="kat-name">CARPORT EINZEL</h3>
+              <p class="kat-desc">Einfeldiger Aluminium-Carport für ein Fahrzeug, freistehend oder wandseitig angebaut. Flachdach, Pultdach oder Satteldach — farblich auf das Haus abstimmbar.</p>
+            </div>
+            <div class="kat-specs">
+              <span class="spec-tag">Einzel-Stellplatz</span>
+              <span class="spec-tag">Freistehend / Anbau</span>
+              <span class="spec-tag">Alle Dachformen</span>
+              <span class="spec-tag">RAL-Farben</span>
+            </div>
+          </div>
+          <div class="kat-cta">
+            <a href="kontakt.html" class="btn-kat">Anfragen</a>
+          </div>
+        </div>
+
+        <!-- ── 09 Carport Doppel ── -->
+        <div class="kat-item"
+             data-cat="carport"
+             data-feat="freistehend"
+             data-size="gross"
+             data-search="carport doppel doppelstellplatz abstellraum fahrrad xxl breit">
+          <div class="kat-img photo-light"></div>
+          <div class="kat-body">
+            <div class="kat-meta">
+              <span class="kat-cat">Carport</span>
+              <h3 class="kat-name">CARPORT DOPPEL</h3>
+              <p class="kat-desc">Zweifeldiger Doppelcarport mit breitem Trägerprofil und optionalem Abstellraum oder Fahrradständer. Für Grundstücke mit zwei oder mehr Stellplätzen.</p>
+            </div>
+            <div class="kat-specs">
+              <span class="spec-tag">2 Stellplätze</span>
+              <span class="spec-tag">Abstellraum optional</span>
+              <span class="spec-tag">Bis 7 m Breite</span>
+              <span class="spec-tag">XXL-Variante</span>
+            </div>
+          </div>
+          <div class="kat-cta">
+            <a href="kontakt.html" class="btn-kat">Anfragen</a>
+          </div>
+        </div>
+
+      </div><!-- /kat-list -->
+
+    </div>
+  </section>
+
+  <style>
+    /* ── Catalog-specific styles ── */
+    .eyebrow-dark {
+      display: block;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #C8903A;
+    }
+
+    /* ── Filter panel ── */
+    .kat-filter-panel {
+      background: #F8F5F0;
+      border: 1px solid #DAD6CF;
+      border-radius: 2px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    /* Search */
+    .kat-search-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .kat-search-icon {
+      position: absolute;
+      left: 0.875rem;
+      width: 1rem;
+      height: 1rem;
+      color: #9A9690;
+      pointer-events: none;
+      flex-shrink: 0;
+    }
+    .kat-search-input {
+      width: 100%;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      background: #fff;
+      border: 1px solid #DAD6CF;
+      border-radius: 2px;
+      padding: 0.7rem 2.5rem 0.7rem 2.5rem;
+      color: #1F1D1A;
+      outline: none;
+      transition: border-color 140ms;
+    }
+    .kat-search-input:focus { border-color: #C8903A; }
+    .kat-search-input::placeholder { color: #B0ABA4; }
+    .kat-search-input::-webkit-search-cancel-button { display: none; }
+    .kat-search-clear {
+      position: absolute;
+      right: 0.875rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #9A9690;
+      padding: 0.25rem;
+      display: flex;
+      align-items: center;
+      transition: color 140ms;
+    }
+    .kat-search-clear:hover { color: #1F1D1A; }
+
+    /* Filter row */
+    .kat-filter-rows { display: flex; flex-direction: column; gap: 0.75rem; }
+    .kat-filter-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .kat-filter-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #9A9690;
+      white-space: nowrap;
+      min-width: 6rem;
+      padding-top: 0.3rem;
+    }
+    .kat-pills { display: flex; flex-wrap: wrap; gap: 0.375rem; }
+
+    /* Pill button — base */
+    .kat-pill {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: #6B6660;
+      background: #fff;
+      border: 1px solid #DAD6CF;
+      border-radius: 2px;
+      padding: 0.3rem 0.75rem;
+      cursor: pointer;
+      transition: border-color 140ms, color 140ms, background 140ms;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+    }
+    .kat-pill:hover { border-color: #9A9690; color: #1F1D1A; }
+
+    /* Category pill — single select (amber fill when active) */
+    .kat-pill-cat.active {
+      background: #1F1D1A;
+      border-color: #1F1D1A;
+      color: #F3F0EB;
+    }
+
+    /* Feature pill — multi select (amber outline when active) */
+    .kat-pill-feat .pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #DAD6CF;
+      flex-shrink: 0;
+      transition: background 140ms;
+    }
+    .kat-pill-feat.active {
+      border-color: #C8903A;
+      color: #B07528;
+      background: rgba(200,144,58,0.08);
+    }
+    .kat-pill-feat.active .pill-dot { background: #C8903A; }
+
+    /* Size pill — single select */
+    .kat-pill-size.active {
+      background: #1F1D1A;
+      border-color: #1F1D1A;
+      color: #F3F0EB;
+    }
+
+    /* Active bar (chips + reset) */
+    .kat-active-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      padding-top: 0.75rem;
+      border-top: 1px solid #DAD6CF;
+    }
+    .kat-chips { display: flex; flex-wrap: wrap; gap: 0.375rem; flex: 1; }
+    .kat-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      background: rgba(200,144,58,0.15);
+      color: #B07528;
+      border: 1px solid rgba(200,144,58,0.35);
+      border-radius: 2px;
+      padding: 0.25rem 0.5rem;
+      cursor: pointer;
+      transition: background 140ms;
+    }
+    .kat-chip:hover { background: rgba(200,144,58,0.25); }
+    .kat-chip-x { opacity: 0.6; font-size: 0.9rem; line-height: 1; }
+    .kat-reset-btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #9A9690;
+      background: none;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      padding: 0.25rem 0;
+      transition: color 140ms;
+    }
+    .kat-reset-btn:hover { color: #1F1D1A; }
+
+    /* Empty state */
+    .kat-empty {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 5rem 1rem;
+      text-align: center;
+      font-size: 0.875rem;
+      color: #9A9690;
+      width: 100%;
+    }
+
+    /* Catalog item row */
+    .kat-item {
+      display: grid;
+      grid-template-columns: 176px 1fr auto;
+      gap: 0;
+      border-top: 1px solid #DAD6CF;
+      transition: background 140ms ease;
+      padding: 0.875rem 0;
+      align-items: center;
+    }
+    .kat-item:last-child { border-bottom: 1px solid #DAD6CF; }
+    .kat-item:hover { background: rgba(200,144,58,0.04); }
+
+    /* Hidden item (filter) */
+    .kat-item.hidden { display: none; }
+
+    /* Photo thumbnail */
+    .kat-img {
+      width: 160px;
+      aspect-ratio: 4/3;
+      flex-shrink: 0;
+      border-radius: 2px;
+      overflow: hidden;
+      margin-left: 0.5rem;
+    }
+    .photo-light {
+      background: linear-gradient(145deg, #E2DED6 0%, #CCC9C1 100%);
+      position: relative;
+    }
+    .photo-light::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        -55deg,
+        transparent, transparent 10px,
+        rgba(200,144,58,0.05) 10px, rgba(200,144,58,0.05) 11px
+      );
+    }
+
+    /* Body */
+    .kat-body {
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.875rem;
+      justify-content: center;
+    }
+    .kat-meta { display: flex; flex-direction: column; gap: 0.25rem; }
+    .kat-cat {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #C8903A;
+    }
+    .kat-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.25rem;
+      color: #1F1D1A;
+      line-height: 1.1;
+      letter-spacing: 0.03em;
+    }
+    .kat-desc {
+      font-size: 0.8125rem;
+      color: #6B6660;
+      line-height: 1.65;
+      max-width: 560px;
+    }
+
+    /* Spec tags */
+    .kat-specs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.375rem;
+    }
+    .spec-tag {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #6B6660;
+      border: 1px solid #DAD6CF;
+      border-radius: 2px;
+      padding: 0.2rem 0.6rem;
+      white-space: nowrap;
+    }
+
+    /* CTA column */
+    .kat-cta {
+      display: flex;
+      align-items: center;
+      padding: 1.25rem 1.5rem 1.25rem 0.5rem;
+      flex-shrink: 0;
+    }
+    .btn-kat {
+      display: inline-block;
+      background: #1F1D1A;
+      color: #F3F0EB;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.625rem 1.25rem;
+      border-radius: 2px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 140ms ease;
+    }
+    .btn-kat:hover { background: #C8903A; color: #1F1D1A; }
+
+    /* Mobile: stack */
+    @media (max-width: 640px) {
+      .kat-item {
+        grid-template-columns: 1fr;
+      }
+      .kat-img {
+        width: 100%;
+        aspect-ratio: 16/7;
+      }
+      .kat-body { padding: 1rem; }
+      .kat-cta { padding: 0 1rem 1.25rem; justify-content: flex-start; }
+    }
+    @media (min-width: 641px) and (max-width: 900px) {
+      .kat-item {
+        grid-template-columns: 140px 1fr auto;
+      }
+      .kat-img { width: 140px; }
+    }
+  </style>
+
+  <script>
+    // Catalog multi-dimensional filter
+    (function () {
+      var items        = document.querySelectorAll('.kat-item');
+      var countEl      = document.getElementById('kat-count');
+      var chipsEl      = document.getElementById('kat-chips');
+      var activeBar    = document.getElementById('kat-active-bar');
+      var emptyEl      = document.getElementById('kat-empty');
+      var resetBtn     = document.getElementById('kat-reset');
+      var emptyReset   = document.getElementById('kat-empty-reset');
+      var searchInput  = document.getElementById('kat-search');
+      var searchClear  = document.getElementById('kat-search-clear');
+
+      var state = {
+        category : 'all',
+        features : new Set(),
+        size     : 'all',
+        query    : ''
+      };
+
+      // Label maps for chips
+      var catLabels  = { ueberdachung: 'Terrassenüberdachung', lamelle: 'Lamellendach', glas: 'Glasdach', carport: 'Carport' };
+      var featLabels = { motor: 'Motorantrieb', led: 'LED-Beleuchtung', app: 'App-Steuerung', ganzjaehrig: 'Ganzjährig', freistehend: 'Freistehend', glas: 'Glasdach-Ausf.' };
+      var sizeLabels = { kompakt: 'Bis 15 m²', mittel: '15 – 40 m²', gross: 'Über 40 m²' };
+
+      function apply() {
+        var q = state.query.toLowerCase();
+        var visible = 0;
+
+        items.forEach(function (item) {
+          var catMatch  = state.category === 'all' || item.dataset.cat === state.category;
+          var sizeMatch = state.size === 'all' || item.dataset.size === state.size;
+          var feats     = (item.dataset.feat || '').split(',');
+          var featMatch = state.features.size === 0 || Array.from(state.features).every(function (f) { return feats.indexOf(f) !== -1; });
+          var search    = (item.dataset.search || '').toLowerCase();
+          var searchMatch = q === '' || search.indexOf(q) !== -1;
+
+          var show = catMatch && sizeMatch && featMatch && searchMatch;
+          item.style.display = show ? '' : 'none';
+          if (show) visible++;
+        });
+
+        countEl.textContent = visible + (visible === 1 ? ' Produkt' : ' Produkte');
+        emptyEl.style.display = visible === 0 ? 'flex' : 'none';
+        renderChips();
+      }
+
+      function renderChips() {
+        chipsEl.innerHTML = '';
+        var any = false;
+
+        if (state.category !== 'all') {
+          addChip(catLabels[state.category] || state.category, function () {
+            state.category = 'all';
+            document.querySelectorAll('.kat-pill-cat').forEach(function (b) { b.classList.toggle('active', b.dataset.cat === 'all'); });
+            apply();
+          });
+          any = true;
+        }
+
+        state.features.forEach(function (f) {
+          addChip(featLabels[f] || f, function () {
+            state.features.delete(f);
+            document.querySelectorAll('.kat-pill-feat').forEach(function (b) { if (b.dataset.feat === f) b.classList.remove('active'); });
+            apply();
+          });
+          any = true;
+        });
+
+        if (state.size !== 'all') {
+          addChip(sizeLabels[state.size] || state.size, function () {
+            state.size = 'all';
+            document.querySelectorAll('.kat-pill-size').forEach(function (b) { b.classList.toggle('active', b.dataset.size === 'all'); });
+            apply();
+          });
+          any = true;
+        }
+
+        if (state.query) {
+          addChip('„' + state.query + '“', function () {
+            state.query = '';
+            searchInput.value = '';
+            searchClear.style.display = 'none';
+            apply();
+          });
+          any = true;
+        }
+
+        activeBar.style.display = any ? 'flex' : 'none';
+      }
+
+      function addChip(label, onRemove) {
+        var chip = document.createElement('button');
+        chip.className = 'kat-chip';
+        chip.innerHTML = label + ' <span class="kat-chip-x">×</span>';
+        chip.addEventListener('click', onRemove);
+        chipsEl.appendChild(chip);
+      }
+
+      function fullReset() {
+        state.category = 'all';
+        state.features.clear();
+        state.size = 'all';
+        state.query = '';
+        searchInput.value = '';
+        searchClear.style.display = 'none';
+        document.querySelectorAll('.kat-pill-cat').forEach(function (b) { b.classList.toggle('active', b.dataset.cat === 'all'); });
+        document.querySelectorAll('.kat-pill-feat').forEach(function (b) { b.classList.remove('active'); });
+        document.querySelectorAll('.kat-pill-size').forEach(function (b) { b.classList.toggle('active', b.dataset.size === 'all'); });
+        apply();
+      }
+
+      // Category pills — single select
+      document.querySelectorAll('.kat-pill-cat').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          document.querySelectorAll('.kat-pill-cat').forEach(function (b) { b.classList.remove('active'); });
+          this.classList.add('active');
+          state.category = this.dataset.cat;
+          apply();
+        });
+      });
+
+      // Feature pills — multi-select toggle
+      document.querySelectorAll('.kat-pill-feat').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var f = this.dataset.feat;
+          if (state.features.has(f)) { state.features.delete(f); this.classList.remove('active'); }
+          else                        { state.features.add(f);    this.classList.add('active'); }
+          apply();
+        });
+      });
+
+      // Size pills — single select
+      document.querySelectorAll('.kat-pill-size').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          document.querySelectorAll('.kat-pill-size').forEach(function (b) { b.classList.remove('active'); });
+          this.classList.add('active');
+          state.size = this.dataset.size;
+          apply();
+        });
+      });
+
+      // Search input
+      searchInput.addEventListener('input', function () {
+        state.query = this.value.trim();
+        searchClear.style.display = state.query ? 'flex' : 'none';
+        apply();
+      });
+
+      searchClear.addEventListener('click', function () {
+        state.query = '';
+        searchInput.value = '';
+        this.style.display = 'none';
+        searchInput.focus();
+        apply();
+      });
+
+      // Reset buttons
+      resetBtn.addEventListener('click', fullReset);
+      emptyReset.addEventListener('click', fullReset);
+
+      // Initial render
+      apply();
+    })();
+  </script>
+
+
+  <!-- ─── CTA STRIP ─────────────────────────────────────────────────────────── -->
+  <section class="py-20 bg-mp-accent">
+    <div class="max-w-[1200px] mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
+      <div>
+        <h2 class="font-display text-mp-deep mb-2" style="font-size: clamp(1.75rem, 4vw, 3rem);">
+          BEREIT FÜR IHR PROJEKT?
+        </h2>
+        <p class="text-mp-deep/70 text-sm">Kostenlose Beratung vor Ort — unverbindliches Festpreisangebot.</p>
+      </div>
+      <a href="#kontakt"
+         class="shrink-0 bg-mp-deep text-mp-text font-bold text-sm tracking-wide uppercase px-8 py-4 rounded-[2px] hover:bg-mp-mid transition-colors duration-150">
+        Angebot anfragen
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ─── KONTAKT ──────────────────────────────────────────────────────────── -->
+  <section id="kontakt" class="py-24 bg-mp-deep">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 xl:gap-24">
+
+        <div>
+          <span class="eyebrow mb-5">Kontakt</span>
+          <h2 class="font-display text-mp-text mb-8" style="font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.05;">
+            SPRECHEN SIE<br>UNS AN.
+          </h2>
+          <p class="text-mp-muted text-sm leading-relaxed mb-12 max-w-[360px]">
+            Teilen Sie uns Ihr Vorhaben mit — wir melden uns innerhalb von 24 Stunden mit einem ersten Angebot.
+          </p>
+          <div class="space-y-8">
+            <div>
+              <p class="text-mp-muted text-[0.65rem] uppercase tracking-wider mb-2">Telefon</p>
+              <a href="tel:+4902734000000" class="text-mp-accent font-semibold text-lg hover:text-mp-acc-h transition-colors duration-150">
+                +49 (0) 2734 000 000
+              </a>
+            </div>
+            <div>
+              <p class="text-mp-muted text-[0.65rem] uppercase tracking-wider mb-2">E-Mail</p>
+              <a href="mailto:info@monpro-freudenberg.de" class="text-mp-text text-sm hover:text-mp-accent transition-colors duration-150">
+                info@monpro-freudenberg.de
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <form class="flex flex-col gap-5" name="kontakt-produkte" method="POST" action="#">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div class="field">
+              <label for="name">Name *</label>
+              <input type="text" id="name" name="name" required placeholder="Max Mustermann">
+            </div>
+            <div class="field">
+              <label for="tel">Telefon</label>
+              <input type="tel" id="tel" name="tel" placeholder="+49 ...">
+            </div>
+          </div>
+          <div class="field">
+            <label for="email">E-Mail *</label>
+            <input type="email" id="email" name="email" required placeholder="max@beispiel.de">
+          </div>
+          <div class="field">
+            <label for="produkt">Gewünschtes Produkt</label>
+            <input type="text" id="produkt" name="produkt" placeholder="z. B. Lamellendach, 4 × 5 m">
+          </div>
+          <div class="field">
+            <label for="nachricht">Nachricht</label>
+            <textarea id="nachricht" name="nachricht" rows="4" placeholder="Weitere Details zu Ihrem Vorhaben ..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary text-center mt-2">Anfrage absenden</button>
+          <p class="text-mp-muted text-xs">* Pflichtfelder. Keine Weitergabe Ihrer Daten an Dritte.</p>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── FOOTER ────────────────────────────────────────────────────────────── -->
+  <footer class="border-t border-mp-border bg-mp-deep py-7">
+    <div class="max-w-[1200px] mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-5">
+      <a href="index.html" class="font-display text-[1.3rem] tracking-[0.12em] text-mp-text">MONPRO</a>
+      <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+        <a href="produkte.html" class="nav-link text-mp-muted text-[0.7rem]">Produkte</a>
+        <a href="service.html"  class="nav-link text-mp-muted text-[0.7rem]">Service</a>
+        <a href="index.html#referenzen" class="nav-link text-mp-muted text-[0.7rem]">Referenzen</a>
+        <a href="#kontakt"      class="nav-link text-mp-muted text-[0.7rem]">Kontakt</a>
+        <a href="impressum.html" class="nav-link text-mp-muted text-[0.7rem]">Impressum</a>
+        <a href="datenschutz.html" class="nav-link text-mp-muted text-[0.7rem]">Datenschutz</a>
+      </nav>
+      <div class="flex flex-col items-center md:items-end gap-2">
+        <div class="flex items-center gap-4">
+          <a href="#" aria-label="Instagram" class="text-mp-muted hover:text-mp-accent transition-colors duration-150">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook" class="text-mp-muted hover:text-mp-accent transition-colors duration-150">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube" class="text-mp-muted hover:text-mp-accent transition-colors duration-150">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.96 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58a2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>
+          </a>
+        </div>
+        <p class="text-mp-muted text-[0.7rem]">© 2025 Monpro Freudenberg</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('nav-toggle').addEventListener('click', function () {
+      document.getElementById('nav-menu').classList.toggle('hidden');
+    });
+  </script>
+
+</body>
+</html>

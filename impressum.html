@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impressum — Monpro Freudenberg</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'mp-deep':   '#1F1D1A',
+            'mp-mid':    '#2C2926',
+            'mp-light':  '#F3F0EB',
+            'mp-accent': '#C8903A',
+            'mp-acc-h':  '#B07528',
+            'mp-text':   '#F3F0EB',
+            'mp-muted':  '#9A9690',
+            'mp-dim':    '#6B6660',
+            'mp-border': '#363330',
+            'mp-brd-l':  '#DAD6CF',
+          },
+          fontFamily: {
+            display: ['Bebas Neue', 'sans-serif'],
+            body:    ['Inter', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #1F1D1A;
+      color: #F3F0EB;
+      -webkit-font-smoothing: antialiased;
+    }
+    .eyebrow {
+      display: block;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #C8903A;
+    }
+    .nav-link {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: #9A9690;
+      transition: color 140ms ease;
+    }
+    .nav-link:hover { color: #F3F0EB; }
+    .btn-primary {
+      display: inline-block;
+      background: #C8903A;
+      color: #1F1D1A;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.875rem 2rem;
+      border-radius: 2px;
+      transition: background 140ms ease, transform 140ms ease;
+      text-decoration: none;
+    }
+    .btn-primary:hover { background: #B07528; transform: translateY(-1px); }
+
+    /* Legal prose */
+    .legal h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.04em;
+      color: #F3F0EB;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+      padding-top: 2rem;
+      border-top: 1px solid #363330;
+    }
+    .legal h2:first-child { margin-top: 0; border-top: none; padding-top: 0; }
+    .legal h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #F3F0EB;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .legal p {
+      font-size: 0.875rem;
+      color: #9A9690;
+      line-height: 1.8;
+      margin-bottom: 0.75rem;
+    }
+    .legal a {
+      color: #C8903A;
+      text-decoration: none;
+    }
+    .legal a:hover { text-decoration: underline; }
+    .legal address {
+      font-style: normal;
+      font-size: 0.875rem;
+      color: #9A9690;
+      line-height: 1.8;
+    }
+    /* Placeholder highlight */
+    .placeholder {
+      background: rgba(200,144,58,0.12);
+      border: 1px dashed rgba(200,144,58,0.4);
+      border-radius: 2px;
+      padding: 0 0.25rem;
+      color: #C8903A;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-mp-deep border-b border-mp-border">
+    <div class="max-w-[1200px] mx-auto px-6 flex items-center justify-between h-[60px]">
+      <a href="index.html" class="font-display text-[1.4rem] tracking-[0.12em] text-mp-text">MONPRO</a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="produkte.html" class="nav-link">Produkte</a>
+        <a href="service.html"  class="nav-link">Service</a>
+        <a href="index.html#referenzen" class="nav-link">Referenzen</a>
+        <a href="kontakt.html"  class="nav-link">Kontakt</a>
+      </div>
+      <a href="kontakt.html" class="hidden md:block btn-primary" style="padding:0.625rem 1.5rem; font-size:0.75rem;">Angebot anfragen</a>
+      <button id="nav-toggle" class="md:hidden flex flex-col gap-[5px] p-2" aria-label="Menü">
+        <span class="w-5 h-[1.5px] bg-mp-text block"></span>
+        <span class="w-5 h-[1.5px] bg-mp-text block"></span>
+        <span class="w-3 h-[1.5px] bg-mp-accent block"></span>
+      </button>
+    </div>
+    <div id="nav-menu" class="hidden md:hidden bg-mp-mid border-t border-mp-border px-6 py-6 flex flex-col gap-5">
+      <a href="produkte.html" class="nav-link text-mp-text">Produkte</a>
+      <a href="service.html"  class="nav-link text-mp-text">Service</a>
+      <a href="index.html#referenzen" class="nav-link text-mp-text">Referenzen</a>
+      <a href="kontakt.html"  class="nav-link text-mp-text">Kontakt</a>
+      <a href="kontakt.html" class="btn-primary mt-2 text-center">Angebot anfragen</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="pt-[60px] bg-mp-deep border-b border-mp-border">
+    <div class="max-w-[1200px] mx-auto px-6 py-16 md:py-20">
+      <span class="eyebrow mb-5">Rechtliches</span>
+      <h1 class="font-display text-mp-text" style="font-size: clamp(3rem, 7vw, 5.5rem); line-height: 1; letter-spacing: -0.01em;">
+        IMPRESSUM
+      </h1>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <main class="py-16 md:py-20">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+
+        <!-- Sidebar note -->
+        <aside class="lg:col-span-3">
+          <div style="border: 1px solid #363330; border-radius: 2px; padding: 1.25rem;">
+            <span class="eyebrow mb-3">Hinweis</span>
+            <p style="font-size:0.8rem; color:#9A9690; line-height:1.7;">
+              Felder in <span class="placeholder">oranger Schrift</span> müssen vor dem Go-Live mit echten Daten ersetzt werden. Bitte einen Anwalt oder einen Impressum-Generator (z. B. eRecht24) für die abschließende Prüfung nutzen.
+            </p>
+          </div>
+        </aside>
+
+        <!-- Legal text -->
+        <div class="lg:col-span-9 legal">
+
+          <h2>Angaben gemäß § 5 TMG</h2>
+          <address>
+            <span class="placeholder">[Vollständiger Firmenname, z. B. Monpro Freudenberg GmbH]</span><br>
+            <span class="placeholder">[Straße und Hausnummer]</span><br>
+            <span class="placeholder">[PLZ] Freudenberg</span>
+          </address>
+
+          <h2>Vertreten durch</h2>
+          <p><span class="placeholder">[Vor- und Nachname des Geschäftsführers / Inhabers]</span></p>
+
+          <h2>Kontakt</h2>
+          <p>
+            Telefon: <a href="tel:+4902734000000"><span class="placeholder">[Telefonnummer]</span></a><br>
+            E-Mail: <a href="mailto:info@monpro-freudenberg.de"><span class="placeholder">[E-Mail-Adresse]</span></a>
+          </p>
+
+          <h2>Registereintrag</h2>
+          <p>
+            <span class="placeholder">[Eintragung im Handelsregister, falls zutreffend]</span><br>
+            Registergericht: <span class="placeholder">[Amtsgericht ...]</span><br>
+            Registernummer: <span class="placeholder">[HRB ...]</span>
+          </p>
+          <p><em style="color:#6B6660; font-size:0.8rem;">Falls kein Handelsregistereintrag: Diese Angabe entfällt für Einzelunternehmer ohne HRB-Eintrag.</em></p>
+
+          <h2>Umsatzsteuer-ID</h2>
+          <p>
+            Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:<br>
+            <span class="placeholder">[USt-IdNr., z. B. DE123456789]</span>
+          </p>
+
+          <h2>Berufsbezeichnung und berufsrechtliche Regelungen</h2>
+          <p>
+            Berufsbezeichnung: <span class="placeholder">[z. B. Metallbauer]</span><br>
+            Zuständige Kammer: <span class="placeholder">[z. B. Handwerkskammer Südwestfalen]</span><br>
+            Verliehen in: Deutschland
+          </p>
+
+          <h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
+          <p>
+            <span class="placeholder">[Vor- und Nachname]</span><br>
+            <span class="placeholder">[Anschrift wie oben]</span>
+          </p>
+
+          <h2>Streitschlichtung</h2>
+          <p>
+            Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
+            <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a>
+          </p>
+          <p>
+            Unsere E-Mail-Adresse finden Sie oben im Impressum. Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+          </p>
+
+          <h2>Haftung für Inhalte</h2>
+          <p>
+            Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
+          </p>
+          <p>
+            Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.
+          </p>
+
+          <h2>Haftung für Links</h2>
+          <p>
+            Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.
+          </p>
+
+          <h2>Urheberrecht</h2>
+          <p>
+            Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-mp-border bg-mp-deep py-7">
+    <div class="max-w-[1200px] mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-5">
+      <a href="index.html" class="font-display text-[1.3rem] tracking-[0.12em] text-mp-text">MONPRO</a>
+      <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+        <a href="produkte.html"  class="nav-link text-mp-muted text-[0.7rem]">Produkte</a>
+        <a href="service.html"   class="nav-link text-mp-muted text-[0.7rem]">Service</a>
+        <a href="kontakt.html"   class="nav-link text-mp-muted text-[0.7rem]">Kontakt</a>
+        <a href="impressum.html" class="nav-link text-mp-muted text-[0.7rem]">Impressum</a>
+        <a href="datenschutz.html" class="nav-link text-mp-muted text-[0.7rem]">Datenschutz</a>
+      </nav>
+      <div class="flex flex-col items-center md:items-end gap-2">
+        <div class="flex items-center gap-4">
+          <a href="#" aria-label="Instagram" class="text-mp-muted hover:text-mp-accent transition-colors duration-150">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook" class="text-mp-muted hover:text-mp-accent transition-colors duration-150">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube" class="text-mp-muted hover:text-mp-accent transition-colors duration-150">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.96 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58a2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>
+          </a>
+        </div>
+        <p class="text-mp-muted text-[0.7rem]">© 2025 Monpro Freudenberg</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('nav-toggle').addEventListener('click', function () {
+      document.getElementById('nav-menu').classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
